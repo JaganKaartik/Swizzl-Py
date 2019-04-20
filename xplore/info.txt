@@ -1,0 +1,4 @@
+Requirements
+
+flask -sqlalchemy
+flask -wtforms

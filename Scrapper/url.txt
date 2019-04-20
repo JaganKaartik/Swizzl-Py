@@ -1,0 +1,167 @@
+if not using XML Document Tree
+
+class="WW6dff pNs0Jf" --> Date Time Class of Google News
+
+
+if using XML Document Tree
+
+URL:  https://news.google.com/rss/search?q=<your-text-here>
+
+
+Google Alerts Web Scrapping
+
+URL: https://www.google.com/alerts
+
+1. Google News
+2. Reddit
+
+Top: 25 Websites RSS Feeds 
+https://blog.feedspot.com/world_news_rss_feeds/
+
+Ny Times RSS
+
+https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/sports/rss.xml
+
+Time: Sat 6:37 Pm
+
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss version="2.0">
+<link type="text/css" id="dark-mode" rel="stylesheet" href=""/>
+<style type="text/css" id="dark-mode-custom-style"/>
+<channel>
+<ttl>60</ttl>
+<title>Sports</title>
+<link>https://www.nytimes.com/section/sports</link>
+<description>
+Find breaking news & sports news on the NFL, the NBA, the NCAA, the NHL, baseball, golf, tennis, soccer, the World Series, Super Bowl, the Olympics and more.
+</description>
+<copyright>Copyright 2019 The New York Times Company</copyright>
+<language>en-us</language>
+<item>
+<title>Arena Football Takes Yet Another Shot</title>
+<link>
+https://www.nytimes.com/2019/04/20/sports/football/arena-football.html
+</link>
+<description>
+New Yorker Corey Galloway has big dreams for a football team called the Streets. History is not his friend.
+</description>
+<author>By KEVIN DRAPER</author>
+<pubDate>Sat, 20 Apr 2019 07:00:04 GMT</pubDate>
+</item>
+<item>
+<title>
+N.H.L. Playoffs: Maple Leafs Win to Put Bruins on the Brink
+</title>
+<link>
+https://www.nytimes.com/2019/04/19/sports/nhl-playoffs-maple-leafs-bruins.html
+</link>
+<description>
+Auston Matthews and Kasperi Kapanen scored in the third period of a 2-1 victory that gave Toronto a 3-2 series lead.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Sat, 20 Apr 2019 02:45:04 GMT</pubDate>
+</item>
+<item>
+<title>
+Santa Anita, Losing Horses to Other Tracks, Reduces Race Days for Now
+</title>
+<link>
+https://www.nytimes.com/2019/04/19/sports/santa-anita-three-day-racing.html
+</link>
+<description>
+The track will hold racing three days a week instead of four for the next four weeks as several stables have sent horses to run at tracks like Keeneland and Churchill Downs.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Sat, 20 Apr 2019 02:19:42 GMT</pubDate>
+</item>
+<item>
+<title>
+N.B.A. Playoffs: Celtics Take 3-0 Series Lead Against Pacers
+</title>
+<link>
+https://www.nytimes.com/2019/04/19/sports/nba-playoffs-raptors-magic-celtics-pacers.html
+</link>
+<description>
+Pascal Siakam had 30 points and 11 rebounds to lead the Raptors past the Magic for a 2-1 edge. Russell Westbrook scored 33 as the Thunder beat the Trail Blazers.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Sat, 20 Apr 2019 01:52:59 GMT</pubDate>
+</item>
+<item>
+<title>
+Leaning Into His Role as the Villain, Ben Simmons Leads 76ers’ Rout of Nets
+</title>
+<link>
+https://www.nytimes.com/2019/04/19/sports/nets-sixers-ben-simmons.html
+</link>
+<description>
+Criticized by Jared Dudley and taunted by Nets fans, Philadelphia’s second-year guard responded with 31 points, easily making up for the absence of Joel Embiid.
+</description>
+<author>By KELLY WHITESIDE</author>
+<pubDate>Fri, 19 Apr 2019 04:04:27 GMT</pubDate>
+</item>
+<item>
+<title>
+After Scorching the Red Sox, the Yankees Wilt Against the Royals
+</title>
+<link>
+https://www.nytimes.com/2019/04/18/sports/baseball/after-scorching-the-red-sox-the-yankees-wilt-against-the-royals.html
+</link>
+<description>
+Domingo German had a decent start, and he and four Yankees relievers combined for 14 strikeouts. But he allowed two homers, while the Yankees’ offense managed only four hits.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Fri, 19 Apr 2019 03:47:57 GMT</pubDate>
+</item>
+<item>
+<title>
+N.H.L. Playoffs: The Hurricanes Pull Even With the Capitals
+</title>
+<link>
+https://www.nytimes.com/2019/04/18/sports/nhl-playoffs-hurricanes-capitals-jets-blues.html
+</link>
+<description>
+Teuvo Teravainen scored the go-ahead goal with less than 30 seconds left in the second period for Carolina. The Blues scored with 15 seconds left to beat the Jets.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Fri, 19 Apr 2019 02:14:32 GMT</pubDate>
+</item>
+<item>
+<title>M.L.S. Announces Plans to Expand to 30 Teams</title>
+<link>
+https://www.nytimes.com/2019/04/18/sports/mls-expansion.html
+</link>
+<description>
+The league is at 24 teams, with three expansion clubs preparing to join in the next two seasons. Sacramento and St. Louis will give presentations to the league’s expansion committee.
+</description>
+<author>By THE ASSOCIATED PRESS</author>
+<pubDate>Fri, 19 Apr 2019 00:27:14 GMT</pubDate>
+</item>
+<item>
+<title>
+Under Pressure, Leaders in Horse Racing Industry Move to Limit Medication Use
+</title>
+<link>
+https://www.nytimes.com/2019/04/18/sports/horses-drugs.html
+</link>
+<description>
+The tracks that host the Triple Crown races created a coalition that proposed banning the use of medication on race days, starting next year.
+</description>
+<author>By JOE DRAPE</author>
+<pubDate>Thu, 18 Apr 2019 22:20:49 GMT</pubDate>
+</item>
+<item>
+<title>
+3 Mountain Climbers Presumed Dead After Avalanche in Canada
+</title>
+<link>
+https://www.nytimes.com/2019/04/18/world/canada/canada-avalanche-roskelley.html
+</link>
+<description>
+The three climbers — Jess Roskelley, an American, and David Lama and Hansjörg Auer, both Austrian — were in Banff National Park in the western province of Alberta.
+</description>
+<author>By IAN AUSTEN</author>
+<pubDate>Thu, 18 Apr 2019 21:29:34 GMT</pubDate>
+</item>
+</channel>
+</rss>
