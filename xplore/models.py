@@ -11,7 +11,9 @@ class User(db.Model):
 class News(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(100), nullable=False)
+	link = db.Column(db.String(100), nullable=False)
+	pubDate = db.Column(db.String(50), nullable=False)
 	content = db.Column(db.Text, nullable=False)
 
 	def __repr__(self):
-		return f"Post('{self.title}','{self.content}')"
+		return f"Post('{self.title}','{self.link}','{self.pubDate}','{self.content}')"
