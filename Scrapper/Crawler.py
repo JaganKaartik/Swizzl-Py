@@ -46,11 +46,6 @@ for i in descriptions:
 	te.append(string+"Read More")
 	feedDict['description'] = te
 
-print(feedDict['title'][0])
-print(feedDict['link'][0])	
-print(feedDict['pubdate'][0])
-print(feedDict['description'][0])
-
 end = time.time()
 print("Execution Time : ",end - start)
 
