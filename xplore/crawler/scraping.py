@@ -98,7 +98,7 @@ def nyScrape(text):
         te.append(i.get_text())
         NYTfeedDict['description'] = te
 
-    return NYTeedDict
+    return NYTfeedDict
 
 
 def guaScrape(text):
