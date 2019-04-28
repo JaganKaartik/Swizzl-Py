@@ -15,6 +15,8 @@ def glScrape(text):
     url = requests.get(htmlurl)
     soup = BeautifulSoup(url.text,'xml')
 
+
+
     titles = soup.findAll('title')
     if not titles:
         return "Empty"
@@ -33,28 +35,31 @@ def glScrape(text):
     descriptions.pop(0)
 
     #Dictionary to hold crawled information
-
+    print("IN HERE")
     GfeedDict = {}
     te = []
-
-    for i in titles:
-        te.append(i.get_text())
-        GfeedDict['title'] = te
-    te = []
-    for i in links:
-        te.append(i.get_text())
-        GfeedDict['link'] = te
-    te = []
-    for i in pubDates:
-        te.append(i.get_text())
-        GfeedDict['pubdate'] = te
-    te = []
-    for i in descriptions:
-        string = i.get_text()
-        string = string.split('<p>')[1]
-        string = string[:-4]
-        te.append(string+"Read More")
-        GfeedDict['description'] = te
+    try:
+        for i in titles:
+            te.append(i.get_text())
+            GfeedDict['title'] = te
+        te = []
+        for i in links:
+            te.append(i.get_text())
+            GfeedDict['link'] = te
+        te = []
+        for i in pubDates:
+            te.append(i.get_text())
+            GfeedDict['pubdate'] = te
+        te = []
+        for i in descriptions:
+            string = i.get_text()
+            string = string.split('<p>')[1]
+            string = string[:-4]
+            te.append(string+"Read More")
+            GfeedDict['description'] = te
+    except Exception as e :
+        print(e)
+        return "Empty"
 
     return GfeedDict
 

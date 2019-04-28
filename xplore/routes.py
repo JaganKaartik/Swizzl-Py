@@ -35,7 +35,7 @@ def feedboard():
     else:
         return redirect(url_for('home'))
     if not request.form['Genre']:
-        flash('Please enter Genre')
+        flash('Please enter Genre','danger')
         return redirect(url_for('home'))
     if(website == 'NY'):
         Gdict = scraping.nyScrape(genre)
@@ -46,12 +46,13 @@ def feedboard():
     else:
         flash('Please enter correct abbrevation')
         return redirect(url_for('home'))
-    print(Gdict)
     if Gdict == "Empty":
         flash('No news in the genre, please re-enter genre','danger')
         return redirect (url_for('home'))
-
-    return render_template('feeds.html',dict = Gdict,title = 'feed')
+    limit = min(10,len(Gdict))
+    print("TEST..........")
+    print(limit)
+    return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
 
 #User_Registration and Redirect to Log in page
 
