@@ -1,8 +1,13 @@
-body {
-  background: #fafafa;
-  color: #333333;
-  margin-top: 5rem;
-}
+body 
+    {
+      padding-top: 80px;
+    background-image:url('image.jpg');
+    background-size:100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+    }
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
