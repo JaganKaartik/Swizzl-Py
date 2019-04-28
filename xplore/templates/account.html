@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2 class="account-heading">{{ current_user.username }}</h2>	
+<h2 class="account-heading">UserName : {{ current_user.username }}</h2>	
      <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">

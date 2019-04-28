@@ -12,6 +12,7 @@ from xplore.crawler import scraping
 
 @app.route("/")
 @app.route("/home")
+@login_required
 def home():
     return render_template('pref.html')
 
