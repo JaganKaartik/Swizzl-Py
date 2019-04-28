@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% for i in range(0,10) %}
+      <h3>{{ dict['title'][i]}}</h1>
+      <h5>{{ dict['description'][i]}}</h3>
+      <h5> <a href="{{ dict['link'][i]}}"> Click here to read more</a></h3>
+      <h5>{{ dict['pubdate'][i]}}</h5>
+      <br>
+      <hr>
+         {% endfor %}
+{% endblock content %}

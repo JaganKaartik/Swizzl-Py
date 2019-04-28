@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div align='center'>
+   	<form action = "http://localhost:5000/feedboard" method = "POST">
+            <p>Select Preferences</p>
+            <p>Pick Genre :  <input type = "text" name = "Genre" /></p>
+            <p>Pick Website : 
+            <select name="Website"> 
+               <option value="GL">Google News</option> 
+               <option value="NY">The New York Times</option>
+               <option value="GA">The Guardian</option>
+            </select>
+            <p><input type = "submit" value = "submit "><a href="{{ url_for('feedboard') }}"></a></p>
+            
+       </form>
+    <div>
+{% endblock content %}

@@ -16,8 +16,13 @@ def glScrape(text):
     soup = BeautifulSoup(url.text,'xml')
 
     titles = soup.findAll('title')
+    if not titles:
+        return "Empty"
     titles.pop(0)
 
+    if not titles:
+        return "Empty"
+    
     links = soup.findAll('link')
     links.pop(0)
 
@@ -60,10 +65,22 @@ def nyScrape(text):
     htmlurl = 'https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/'+text+'/rss.xml'
     url = requests.get(htmlurl)
     soup = BeautifulSoup(url.text,'xml')
+
+    #Dictionary to hold crawled information
     
+    NYTfeedDict = {}
+
+
     titles = soup.findAll('title')
-    titles.pop(0)
     
+    if not titles:
+        return "Empty"
+
+    titles.pop(0)
+    if not titles:
+        return "Empty"
+
+
     links = soup.findAll('link')
     links.pop(0)
     
@@ -74,9 +91,7 @@ def nyScrape(text):
     descriptions = soup.findAll('description')
     descriptions.pop(0)
     
-    #Dictionary to hold crawled information
     
-    NYTfeedDict = {}
 
     #Temporary Dictionary
 
@@ -107,8 +122,14 @@ def guaScrape(text):
     soup = BeautifulSoup(url.text,'xml')
 
     titles = soup.findAll('title')
+    if not titles:
+        return "Empty"
     titles.pop(0)
+    if not titles:
+        return "Empty"
     titles.pop(0)
+    if not titles:
+        return "Empty"
 
     links = soup.findAll('link')
     links.pop(0)
