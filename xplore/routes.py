@@ -24,7 +24,7 @@ def home():
 def prefform():
    return render_template('pref.html')
 
-#View All Feeds
+#View All Feeds (Fix Limit Issues)
 
 @login_required
 @app.route('/feedboard',methods = ['POST', 'GET'])
@@ -49,7 +49,7 @@ def feedboard():
     if Gdict == "Empty":
         flash('No news in the genre, please re-enter genre','danger')
         return redirect (url_for('home'))
-    limit = min(10,len(Gdict))
+    limit = min(10,len(Gdict['title']))
     print("TEST..........")
     print(limit)
     return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
@@ -101,15 +101,13 @@ def logout():
 def feeds():
     return render_template('feeds.html', title = 'feed')
 
-"""
-@app.route("/front")
-def front():
-    return render_template('front.html', title='front')
-"""
+@app.route("/admin ")
+def admin():
+    return render_template('admin.html', title='admin')
 
 """ User Profile Management """
 
-#Updating account Information
+#Updating Account Information
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
