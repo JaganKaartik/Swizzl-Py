@@ -11,6 +11,14 @@ import requests
 import json
 
 def glScrape(text):
+
+
+    #For every space encounterd add %20
+
+    text = text.replace(" ","+")
+
+    #Split at space! add the space_len
+
     htmlurl = 'https://news.google.com/rss/search?q='+text
     url = requests.get(htmlurl)
     soup = BeautifulSoup(url.text,'xml')

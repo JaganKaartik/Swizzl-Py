@@ -3,9 +3,10 @@
 from flask import render_template, flash, redirect, url_for, request
 from xplore import app, db, bcrypt
 from xplore.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from xplore.models import User
+from xplore.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
 from xplore.crawler import scraping
+from flask_admin.contrib.sqla import ModelView
 
 
 #HomePage or the Root File
@@ -49,12 +50,16 @@ def feedboard():
     if Gdict == "Empty":
         flash('No news in the genre, please re-enter genre','danger')
         return redirect (url_for('home'))
-    limit = min(10,len(Gdict['title']))
-    print("TEST..........")
-    print(limit)
+    limit = len(Gdict['title'])
+    for i in range(0,limit-1):
+        post = Posts(title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
+        db.session.add(post)
+        db.session.commit()
     return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
 
 #User_Registration and Redirect to Log in page
+
+#Explicitly Adding Admin and Users
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -63,7 +68,10 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, password=hashed_password)
+        if(form.username.data == 'Admin'):
+            user = User(username=form.username.data, password=hashed_password, roles='Admin')
+        else:
+            user = User(username=form.username.data, password=hashed_password, roles='User') 
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success!')
@@ -101,9 +109,6 @@ def logout():
 def feeds():
     return render_template('feeds.html', title = 'feed')
 
-@app.route("/admin ")
-def admin():
-    return render_template('admin.html', title='admin')
 
 """ User Profile Management """
 
@@ -121,3 +126,23 @@ def account():
     elif request.method == 'GET':
         form.username.data = current_user.username
     return render_template('account.html', title='Account', form = form)
+
+
+""" Admin Management """
+
+#Creating the Admin Model View
+
+@login_required
+@app.route("/admin ")
+def admin():
+    return render_template('admin.html', title='admin')
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        if User.query.filter(current_user.username == 'Admin').first():
+            return True
+        else:
+            return False
+
+            def inaccessible_callback(self,name,**kwargs):
+                return redirect(url_for('login'))
