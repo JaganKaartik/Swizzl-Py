@@ -9,15 +9,19 @@ from xplore.crawler import scraping
 from flask_admin.contrib.sqla import ModelView
 
 
+
 #HomePage or the Root File
 
 @app.route("/")
 @app.route("/home")
 @login_required
 def home():
-    return render_template('pref.html')
+    return render_template('home.html')
+
+
 
 #Login Required for the User Choosing Preferences
+
 
 
 @login_required
@@ -25,7 +29,11 @@ def home():
 def prefform():
    return render_template('pref.html')
 
+
+
 #View All Feeds (Fix Limit Issues)
+
+
 
 @login_required
 @app.route('/feedboard',methods = ['POST', 'GET'])
@@ -50,21 +58,37 @@ def feedboard():
     if Gdict == "Empty":
         flash('No news in the genre, please re-enter genre','danger')
         return redirect (url_for('home'))
+
     limit = len(Gdict['title'])
+    
     for i in range(0,limit-1):
-        post = Posts(title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
+        post = Posts(Genre = genre,title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
         db.session.add(post)
         db.session.commit()
+    
+    
     return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
+
+
+
+@app.route("/viewpost")
+@login_required
+def viewpost():
+    result = Posts.query.all()
+    return render_template('viewpost.html',post = result,title = 'viewpost')
+
+
 
 #User_Registration and Redirect to Log in page
 
+
 #Explicitly Adding Admin and Users
+
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('front'))
+        return redirect(url_for('home'))
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -81,10 +105,11 @@ def register():
 
 #User_Login and Redirect to Home Page
 
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('front'))
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -112,6 +137,7 @@ def feeds():
 
 """ User Profile Management """
 
+
 #Updating Account Information
 
 @app.route("/account", methods=['GET', 'POST'])
@@ -129,6 +155,7 @@ def account():
 
 
 """ Admin Management """
+
 
 #Creating the Admin Model View
 

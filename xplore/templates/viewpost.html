@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if current_user.is_authenticated %}
+{% for i in post %}
+<h2>{{ i.title}}</h3>
+<h5>{{ i.content}}</h3>
+<h5> <a href="{{ i.link }}"> Click here to read more</a></h3>
+<h5>Published Date : {{ i.pubDate}}</h5>
+<h5>Genre : {{ i.Genre}}</h5>
+{% endfor %}
+{% else %}
+<h1>Please Log In to continue.....</h1>
+{% endif %}
+{% endblock content %}

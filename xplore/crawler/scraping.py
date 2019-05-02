@@ -11,8 +11,6 @@ import requests
 import json
 
 def glScrape(text):
-
-
     #For every space encounterd add %20
 
     text = text.replace(" ","+")
@@ -22,7 +20,6 @@ def glScrape(text):
     htmlurl = 'https://news.google.com/rss/search?q='+text
     url = requests.get(htmlurl)
     soup = BeautifulSoup(url.text,'xml')
-
 
 
     titles = soup.findAll('title')
