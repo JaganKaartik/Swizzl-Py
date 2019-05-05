@@ -3,14 +3,16 @@
    <div align='center'>
 
     <form action = "http://localhost:5000/feedboard" method = "POST">
-            <p><font size="10" color="black">Select Preferences</font></p>
+            <p><font size="10" color="black">Archived Feeds (Stored in DB)</font></p>
             <p align="right"><font size="5" color="black">Pick Genre :  <input type = "text" name = "Genre" ></font></p>
+            <!--
             <p align="right"><font size="5" color="black">Pick Website : 
             <select name="Website"> 
                <option value="GL">Google News</option> 
                <option value="NY">The New York Times</option>
                <option value="GA">The Guardian</option>
             </select></font>
+        -->
             <p align="right"><input type = "submit" value = "submit " ><a href="{{ url_for('feedboard') }}"></a></p>
             
        </form>

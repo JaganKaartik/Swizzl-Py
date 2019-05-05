@@ -71,13 +71,13 @@ def feedboard():
 
 
 
+
+
 @app.route("/viewpost")
 @login_required
 def viewpost():
     result = Posts.query.all()
     return render_template('viewpost.html',post = result,title = 'viewpost')
-
-
 
 #User_Registration and Redirect to Log in page
 
@@ -106,6 +106,7 @@ def register():
 #User_Login and Redirect to Home Page
 
 
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -121,12 +122,14 @@ def login():
     return render_template('login.html', title='Login', form = form)
 
 
+
 @app.route("/logout")
 @login_required
 def logout():
     logout_user()
     flash('You have successfully logged out', 'success')
     return redirect(url_for('home'))
+
 
 
 @app.route("/feeds")
@@ -139,6 +142,7 @@ def feeds():
 
 
 #Updating Account Information
+
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -157,7 +161,9 @@ def account():
 """ Admin Management """
 
 
+
 #Creating the Admin Model View
+
 
 @login_required
 @app.route("/admin ")
