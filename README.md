@@ -15,5 +15,8 @@ Visiting many separate websites frequently to find out if content on the site ha
 ## Diagrams
 
 **Use Case Diagram**
-
-![usecase]()
+![](https://github.com/JaganKaartik/Xplore/blob/master/UCD.png)
+**Acitivity Diagram**
+![](https://github.com/JaganKaartik/Xplore/blob/master/Activity_diagram.jpg)
+**Sequence Diagram**
+![](https://github.com/JaganKaartik/Xplore/blob/master/SoftwareEngineering.png)
