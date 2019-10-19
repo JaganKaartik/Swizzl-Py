@@ -1,12 +1,11 @@
 # Xplore
 
+## Introduction
 **Abstract**
 
-Xplore is a web application which aggregates syndicated web content from online newspapers, blogs, etc in one location for easy viewing. It can show new or updated information from websites. This reduces the time and effort needed to regularly check websites for updates, also it creates a personalized information space. It aims to remove all unwanted content, only displaying the relevant content.
-
-**Introduction**
-
 A news aggregator, also termed a feed aggregator, feed reader or news reader, is client software or a web application which aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing.
+
+Xplore is a web application which aggregates syndicated web content from online newspapers, blogs, etc in one location for easy viewing. It can show new or updated information from websites. This reduces the time and effort needed to regularly check websites for updates, also it creates a personalized information space. It aims to remove all unwanted content, only displaying the relevant content.
 
 **Purpose**
 
