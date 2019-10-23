@@ -1,6 +1,7 @@
 # Xplore
 
 ## Introduction
+
 **Abstract**
 
 A news aggregator, also termed a feed aggregator, feed reader or news reader, is client software or a web application which aggregates syndicated web content such as online newspapers, blogs, podcasts, and video blogs (vlogs) in one location for easy viewing.
@@ -19,3 +20,7 @@ Visiting many separate websites frequently to find out if content on the site ha
 **Sequence Diagram**
 
 ![](https://github.com/JaganKaartik/Xplore/blob/master/SoftwareEngineering.png)
+
+**Xplore 2.0** 
+
+On the way...
