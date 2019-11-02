@@ -17,3 +17,10 @@ Visiting many separate websites frequently to find out if content on the site ha
 On the way...
 More Features...
 More Enhancements...
+
+**Current Version** 
+   * Master Branch
+   
+**Xplore 2.0** 
+   * Dev Branch
+
