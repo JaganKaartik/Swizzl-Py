@@ -15,8 +15,10 @@ Visiting many separate websites frequently to find out if content on the site ha
 **Xplore 2.0** 
 
 On the way...
+:soon:
 More Features...
 More Enhancements...
+:fire: 
 
 **Current Version** 
    * Master Branch
