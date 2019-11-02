@@ -24,3 +24,6 @@ More Enhancements...
 **Xplore 2.0** 
    * Dev Branch
 
+**Issues**
+   /Issues/
+
