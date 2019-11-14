@@ -14,9 +14,9 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 admin = Admin(app)
 
-from xplore.models import User, Posts
-from xplore import routes
-from xplore.routes import MyModelView
+from swizzl.models import User, Posts
+from swizzl import routes
+from swizzl.routes import MyModelView
 
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Posts, db.session))

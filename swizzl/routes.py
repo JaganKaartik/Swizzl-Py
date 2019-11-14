@@ -1,11 +1,11 @@
 #Import Statements
 
 from flask import render_template, flash, redirect, url_for, request
-from xplore import app, db, bcrypt
-from xplore.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from xplore.models import User, Posts
+from swizzl import app, db, bcrypt
+from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
+from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
-from xplore.crawler import scraping
+from swizzl.crawler import scraping
 from flask_admin.contrib.sqla import ModelView
 
 
