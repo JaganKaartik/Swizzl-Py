@@ -76,3 +76,15 @@ def YahooFetch():
     
     return FeedDict
 
+"""
+
+*Testing Purposes*
+
+Print FeedDict in this format 
+
+print(FeedDict['title'][0])
+print(FeedDict['link'][0])
+print(FeedDict['linktext'][0])
+print(FeedDict['pubdate'][0])
+
+"""
