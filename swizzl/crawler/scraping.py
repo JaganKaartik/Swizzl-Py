@@ -41,32 +41,32 @@ def glScrape(text):
 
     #Dictionary to hold crawled information
     print("IN HERE")
-    GfeedDict = {}
+    FeedDict = {}
     te = []
     try:
         for i in titles:
             te.append(i.get_text())
-            GfeedDict['title'] = te
+            FeedDict['title'] = te
         te = []
         for i in links:
             te.append(i.get_text())
-            GfeedDict['link'] = te
+            FeedDict['link'] = te
         te = []
         for i in pubDates:
             te.append(i.get_text())
-            GfeedDict['pubdate'] = te
+            FeedDict['pubdate'] = te
         te = []
         for i in descriptions:
             string = i.get_text()
             string = string.split('<p>')[1]
             string = string[:-4]
             te.append(string+"Read More")
-            GfeedDict['description'] = te
+            FeedDict['description'] = te
     except Exception as e :
         print(e)
         return "Empty"
 
-    return GfeedDict
+    return FeedDict
 
    
 #NewYork Times News RSS/XML Crawler 
