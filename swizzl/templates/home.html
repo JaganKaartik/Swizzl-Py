@@ -3,7 +3,5 @@
 {% if current_user.is_authenticated %}
 <h1> Welcome to the Home Page! </h1>
 <a href="{{ url_for('prefform') }}" ><font size ="10" colour ="green">Start Exploring</font></a>
-{% else %}
-<h1> Xplore: A News Aggregator System</h1>
 {% endif %}
 {% endblock content %}
