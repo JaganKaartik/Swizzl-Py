@@ -5,7 +5,7 @@ from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
-from swizzl.crawler import scraping
+from swizzl.services.crawler import newsfetch
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -35,39 +35,39 @@ def prefform():
 
 
 
-@login_required
-@app.route('/feedboard',methods = ['POST', 'GET'])
-def feedboard():
-    if request.method == 'POST':
-        genre = request.form['Genre']
-        website = request.form['Website']
-    else:
-        return redirect(url_for('home'))
-    if not request.form['Genre']:
-        flash('Please enter Genre','danger')
-        return redirect(url_for('home'))
-    if(website == 'NY'):
-        Gdict = scraping.nyScrape(genre)
-    elif(website == 'GL'):
-        Gdict = scraping.glScrape(genre)
-    elif(website == 'GA'):
-        Gdict = scraping.guaScrape(genre)
-    else:
-        flash('Please enter correct abbrevation')
-        return redirect(url_for('home'))
-    if Gdict == "Empty":
-        flash('No news in the genre, please re-enter genre','danger')
-        return redirect (url_for('home'))
+# @login_required
+# @app.route('/feedboard',methods = ['POST', 'GET'])
+# def feedboard():
+#     if request.method == 'POST':
+#         genre = request.form['Genre']
+#         website = request.form['Website']
+#     else:
+#         return redirect(url_for('home'))
+#     if not request.form['Genre']:
+#         flash('Please enter Genre','danger')
+#         return redirect(url_for('home'))
+#     if(website == 'NY'):
+#         Gdict = scraping.nyScrape(genre)
+#     elif(website == 'GL'):
+#         Gdict = scraping.glScrape(genre)
+#     elif(website == 'GA'):
+#         Gdict = scraping.guaScrape(genre)
+#     else:
+#         flash('Please enter correct abbrevation')
+#         return redirect(url_for('home'))
+#     if Gdict == "Empty":
+#         flash('No news in the genre, please re-enter genre','danger')
+#         return redirect (url_for('home'))
 
-    limit = len(Gdict['title'])
+#     limit = len(Gdict['title'])
     
-    for i in range(0,limit-1):
-        post = Posts(Genre = genre,title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
-        db.session.add(post)
-        db.session.commit()
+#     for i in range(0,limit-1):
+#         post = Posts(Genre = genre,title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
+#         db.session.add(post)
+#         db.session.commit()
     
     
-    return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
+#     return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
 
 
 
