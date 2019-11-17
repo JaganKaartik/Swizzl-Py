@@ -1,10 +1,12 @@
+<!-- Account Information -->
 {% extends "layout.html" %}
 {% block content %}
-<h2 class="account-heading">UserName : {{ current_user.username }}</h2>	
+<div class="card-panel hoverable">
+    <legend class="border-bottom mb-4">Account Info</legend>
+<span class="account-heading">UserName : {{ current_user.username }}</span>	
      <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Account Info</legend>
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}
                     {% if form.username.errors %}
@@ -23,4 +25,5 @@
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
         </form>
+</div>
 {% endblock content %}
