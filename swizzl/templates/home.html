@@ -3,7 +3,7 @@
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
 <div class ="speccontainer card-panel hoverable paras">
-      <h2 class ="blue-text text-darken-2 center">Welcome to the Home Page</h2>
+      <h2 class ="blue-text text-darken-2 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
     </div>
 <div class="speccontainer">
   <!-- Archived Feeds Stored in DB -->
