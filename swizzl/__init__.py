@@ -22,3 +22,5 @@ admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Posts, db.session))
 
 
+# User.query.all()
+

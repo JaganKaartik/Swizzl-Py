@@ -5,7 +5,7 @@ from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
-from swizzl.crawler import scraping
+from swizzl.services.crawler import newsfetch
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -14,7 +14,6 @@ from flask_admin.contrib.sqla import ModelView
 
 @app.route("/")
 @app.route("/home")
-@login_required
 def home():
     return render_template('home.html')
 

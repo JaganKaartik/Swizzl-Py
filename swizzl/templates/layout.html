@@ -9,14 +9,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Google Font Link -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+
+    <style>
+      .title{
+        font-family: 'Bebas Neue', cursive;
+        font-size: 55px;
+      }
+      .paras{
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 65px;
+        color: white;
+      }
+      .parashome{
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 200px;
+        color: white;
+      }
+    </style>
    
     <title>Swizzl</title>
 </head>
 <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top light-blue darken-3">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Xplore</a>
+          <a class="navbar-brand mr-4 title " href="/">Swizzl</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +58,7 @@
               {% endif %}
             </div>
             <!-- Navbar Right Side -->
-            <div class="navbar-nav">
+            <div class="navbar-nav ">
               {% if current_user.is_authenticated %}
                 <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
                 <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -42,6 +70,7 @@
         </div>
       </nav>
     </header>
+
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
@@ -58,8 +87,9 @@
         </div>
       </div>
     </main>
+    
 
-    <!-- Optional JavaScript -->
+    <!--JavaScript -->
     <!--JavaScript at end of body for optimized loading-->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

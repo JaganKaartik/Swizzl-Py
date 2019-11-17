@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
-	{% for i in range(0,x) %}
-      <h3>{{ dict['title'][i]}}</h3>
-      <h5>{{ dict['description'][i]}}</h3>
-      <h5> <a href="{{ dict['link'][i]}}"> Click here to read more</a></h3>
-      <h5>{{ dict['pubdate'][i]}}</h5>
-      <br>
-         {% endfor %}
+	  <div class="card-panel blue-text text-darken-2">
+			{% for i in range(0,x) %}
+      			<h3>{{ dict['title'][i]}}</h3>
+      			<h5>{{ dict['description'][i]}}</h3>
+      			<h5> <a href="{{ dict['link'][i]}}"> Click here to read more</a></h3>
+      			<h5>{{ dict['pubdate'][i]}}</h5>
+      			<br>
+         	{% endfor %}
+      <div>
 {% endblock content %}
