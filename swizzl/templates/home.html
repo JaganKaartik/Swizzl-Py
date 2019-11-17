@@ -2,11 +2,40 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
-<div class = "new" width="100%">
-<h1 class="card-panel hoverable blue-text text-darken-2 paras">Welcome to Home Page</h1>
+<div class ="card-panel hoverable paras">
+	<h2 class ="blue-text text-darken-2">Welcome to Home Page</h2>
 </div>
-<a href="{{ url_for('prefform') }}" ><font size ="10" colour ="green">Start Exploring</font></a>
+ <div class="card hoverable">
+        <div class="card-image">
+          <img src="static/homePage/swizzle.jpg">
+          <span class="card-title">Start Swizzlin</span>
+        </div>
+        <div class="card-content">
+          <p>Click Swizzle! to view all fecthed feeds, news and posts in one place for easy viewing</p>
+        </div>
+        <div class="card-action">
+          <a href="{{ url_for('prefform') }}" >Swizzle!</a>
+        </div>
+</div>
+
+<div class="card hoverable">
+        <div class="card-image">
+          <img src="static/homePage/dashboard.jpg">
+          <span class="card-title">Dashboard</span>
+        </div>
+        <div class="card-content">
+          <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
+        </div>
+        <div class="card-action">
+         <a href="{{ url_for('feedboard') }}">Let the curtains fall!</a>
+        </div>
+</div>
+
+<!-- <a href="{{ url_for('viewpost') }}">
+	<h2 class="card-panel hoverable blue-text text-darken-2 paras">View Posts</h2>
+</a> -->
 {% else %}
-<h1 class="card-panel blue-text text-darken-2 parahome">Feeds. News. Posts. in a Swizzl!</h1>
+<h1 class="card-panel blue-text text-darken-2 paras">Feeds. News. Posts. in a Swizzl!</h1>
 {% endif %}
 {% endblock content %}
+
