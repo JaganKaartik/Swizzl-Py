@@ -1,174 +1,68 @@
-<!-- Login Page -->
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
-
-    <!-- BootStrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    
-    <!-- Google Font Link -->
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
-
-    <style>
-      .title{
-        font-family: 'Bebas Neue', cursive;
-        font-size: 55px;
-      }
-      .paras{
-        font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 65px;
-        color: white;
-      }
-      .parashome{
-        font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 200px;
-        color: white;
-      }
-      .wrapper{
-        grid-gap: 1em;
-        display: grid;
-        grid-template-columns: 20% 50% 30%;
-        margin-left: 30px;
-        margin-right: 30px;
-      }
-      .speccontainer{
-        margin:25px 50px 75px 100px;
-        display: grid;
-        grid-template-columns: 50% 50%;
-      }
-    </style>
-   
-    <title>Swizzl</title>
-</head>
-<body>
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top light-blue darken-3">
-        <div class="container">
-          <a class="navbar-brand mr-4 title " href="/">Swizzl</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-              <div class="navbar-nav mr-auto">
-              {% if current_user.is_authenticated %}
-              <a class="nav-item nav-link" href="{{ url_for('admin.index') }}">Admin</a>
-              {% else %}
-              {% endif %}
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav ">
-              {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-              {% endif %}
-          </div>
+{% extends "layout.html" %}
+{% block content %}
+<div class="speccontainer">
+    <!-- Convert to Card -->
+     <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="static/mainPage/main2.jpg">
         </div>
-      </nav>
-
-    <div class="speccontainer">
-            <!-- Convert to Card -->
-             <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="static/mainPage/main2.jpg">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Start Swizzlin<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link to about page</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">What is Swizzl?<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div>
-            
-            <!-- Convert to Card -->
-             <!-- <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                  <img class="activator" src="static/mainPage/news1.jpg">
-                </div>
-                <div class="card-content">
-                  <span class="card-title activator grey-text text-darken-4">Start Swizzlin<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is a link</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">What is Swizzl?<i class="material-icons right">close</i></span>
-                  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                </div>
-            </div> -->
-
-        
-
-            <div class="card-panel hoverable content-section">
-                <form method="POST" action="">
-                    {{ form.hidden_tag() }}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Log In</legend>
-                        <div class="form-group">
-                            {{ form.username.label(class="form-control-label") }}
-                            {% if form.username.errors %}
-                                {{ form.username(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.username.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.username(class="form-control form-control-lg") }}
-                            {% endif %}
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Start Swizzlin<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">This is a link to about page</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">What is Swizzl?<i class="material-icons right">close</i></span>
+          <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+    </div>
+    <div class="card-panel hoverable content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In</legend>
+                <div class="form-group">
+                    {{ form.username.label(class="form-control-label") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
                         </div>
-                        <div class="form-group">
-                            {{ form.password.label(class="form-control-label") }}
-                            {% if form.password.errors %}
-                                {{ form.password(class="form-control form-control-lg is-invalid") }}
-                                <div class="invalid-feedback">
-                                    {% for error in form.password.errors %}
-                                        <span>{{ error }}</span>
-                                    {% endfor %}
-                                </div>
-                            {% else %}
-                                {{ form.password(class="form-control form-control-lg") }}
-                            {% endif %}
+                    {% else %}
+                        {{ form.username(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
                         </div>
-                        <div class="form-check">
-                            {{ form.remember(class="form-check-input") }}
-                            {{ form.remember.label(class="form-check-label") }}
-                        </div>
-                    </fieldset>
-                    <div class="form-group">
-                        {{ form.submit(class="btn btn-outline-info") }}
-                    </div>
-                    <small class="text-muted ml-2">
-                        <a href="#">Forgot Password?</a>
-                    </small>
-                    <div class="border-top pt-3">
-                    <small class="text-muted white">
-                        Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
-                    </small>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
             </div>
-                </form>
-            </div>
+            <small class="text-muted ml-2">
+                <a href="#">Forgot Password?</a>
+            </small>
+            <div class="border-top pt-3">
+            <small class="text-muted white">
+                Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
+            </small>
+    </div>
+        </form>
+    </div>
 </div>
-      
-</body>
-</html>
-
+{% endblock %}
