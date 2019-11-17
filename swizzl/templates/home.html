@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<h1> Welcome to the Home Page! </h1>
+<!-- <h1> Welcome to the Home Page! </h1> -->
+<div class = "new" width="100%">
+<h1 class="card-panel hoverable blue-text text-darken-2 paras">Welcome to Home Page</h1>
+</div>
 <a href="{{ url_for('prefform') }}" ><font size ="10" colour ="green">Start Exploring</font></a>
+{% else %}
+<h1 class="card-panel blue-text text-darken-2 parahome">Feeds. News. Posts. in a Swizzl!</h1>
 {% endif %}
 {% endblock content %}

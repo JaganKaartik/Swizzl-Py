@@ -14,7 +14,6 @@ from flask_admin.contrib.sqla import ModelView
 
 @app.route("/")
 @app.route("/home")
-@login_required
 def home():
     return render_template('home.html')
 

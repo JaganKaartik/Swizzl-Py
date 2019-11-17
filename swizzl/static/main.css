@@ -1,6 +1,6 @@
 body 
     {
-      padding-top: 80px;
+    padding-top: 80px;
     background-image:url('image2.jpg');
     background-size:100%;
     background-repeat: repeat-y;
@@ -8,6 +8,12 @@ body
     height:100%;
     width:100%;
     }
+
+.content{
+  width: 100%;
+  padding: 50px;
+  margin: 20px;
+}
 
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
