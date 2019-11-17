@@ -1,8 +1,79 @@
-{% extends "layout.html" %}
-{% block content %}
-<!-- <div class="container paras"> -->
+<!-- Login Page -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Google Font Link -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+
+    <style>
+      .title{
+        font-family: 'Bebas Neue', cursive;
+        font-size: 55px;
+      }
+      .paras{
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 65px;
+        color: white;
+      }
+      .parashome{
+        font-family: 'Open Sans Condensed', sans-serif;
+        font-size: 200px;
+        color: white;
+      }
+    </style>
+   
+    <title>Swizzl</title>
+</head>
+<body>
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top light-blue darken-3">
+        <div class="container">
+          <a class="navbar-brand mr-4 title " href="/">Swizzl</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+              {% if current_user.is_authenticated %}
+              <a class="nav-item nav-link" href="{{ url_for('admin.index') }}">Admin</a>
+              {% else %}
+              {% endif %}
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav ">
+              {% if current_user.is_authenticated %}
+                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+          </div>
+        </div>
+      </nav>
+
+    <div class="wrapper">
     <h1 class="card-panel hoverable blue-text text-darken-2 paras">Feeds. News. Posts. in a Swizzl!</h1>
-    <!-- </div> -->
+    
     <div class="content-section">
         <form method="POST" action="">
             {{ form.hidden_tag() }}
@@ -52,9 +123,8 @@
     </div>
         </form>
     </div>
-    <!-- <div class="border-top pt-3">
-        <small class="text-muted white">
-            Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
-        </small>
-    </div> -->
-{% endblock content %}
+</div>
+      
+</body>
+</html>
+
