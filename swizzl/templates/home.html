@@ -2,9 +2,9 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
-<div class ="speccontainer card-panel hoverable paras">
+<div class ="heading card-panel hoverable paras">
       <h2 class ="blue-text text-darken-2 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
-    </div>
+</div>
 <div class="speccontainer">
   <!-- Archived Feeds Stored in DB -->
      <div class="card hoverable">
@@ -35,6 +35,31 @@
     </div>
 </div>
 {% else %}
-<h1 class="card-panel blue-text text-darken-2 paras">Feeds. News. Posts. in a Swizzl!</h1>
+<!-- HOME PAGE OF SWIZZL if Current User isn't logged in... -->
+
+
+<div class="heading">
+  <div class="card hoverable">
+    <div class="card-image">
+          <img src="static/homePage/doodle_art.jpg">
+          <h2 class ="card-title blue-text text-darken-2 paras" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
+    </div>
+    <div class="card-content">
+<!--           <h2 class ="blue-text text-darken-2 paras" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
+ -->    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4">Test 1</a></li>
+        <li class="tab"><a class="active" href="#test5">Test 2</a></li>
+        <li class="tab"><a href="#test6">Test 3</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <div id="test4">Test 1</div>
+      <div id="test5">Test 2</div>
+      <div id="test6">Test 3</div>
+    </div>
+  </div>
+</div>
 {% endif %}
 {% endblock content %}
