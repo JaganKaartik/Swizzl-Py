@@ -2,3 +2,7 @@
     $('select').formSelect();
   });
     
+ 
+  $(document).ready(function(){
+    $('.tabs').tabs();
+  });
