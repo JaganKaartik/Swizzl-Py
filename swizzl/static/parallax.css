@@ -1,11 +1,6 @@
 .parallax{
-/* The image used */
 background-image: url('homePage/fruit1.jpg');
-
-/* Set a specific height */
 min-height: 500px; 
-
-/* Create the parallax scrolling effect */
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -13,13 +8,8 @@ background-size: cover;
 }
 
 .parallax2{
-/* The image used */
-background-image: url('homePage/globle.jpg');
-
-/* Set a specific height */
+background-image: url('homePage/info.jpeg');
 min-height: 500px; 
-
-/* Create the parallax scrolling effect */
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -27,13 +17,8 @@ background-size: cover;
 }
 
 .parallax3{
-/* The image used */
 background-image: url('homePage/sentiment.jpg');
-
-/* Set a specific height */
 min-height: 500px; 
-
-/* Create the parallax scrolling effect */
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -41,13 +26,8 @@ background-size: cover;
 }
 
 .parallax4{
-/* The image used */
 background-image: url('homePage/subObj.jpg');
-
-/* Set a specific height */
 min-height: 500px; 
-
-/* Create the parallax scrolling effect */
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -55,13 +35,44 @@ background-size: cover;
 }
 
 .parallaxhome{
-/* The image used */
 background-image: url('homePage/home.jpg');
-
-/* Set a specific height */
 min-height: 500px; 
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
 
-/* Create the parallax scrolling effect */
+.parallaxhome2{
+background-image: url('homePage/home2.jpg');
+min-height: 500px; 
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.parallaxmac{
+background-image: url('feedsPage/macDesk1.jpg');
+min-height: 500px; 
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.parallaxcity{
+background-image: url('feedsPage/city.jpg');
+min-height: 500px; 
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.parallaxfeedmain{
+background-image: url('feedsPage/main.jpg');
+min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
