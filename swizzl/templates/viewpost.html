@@ -1,34 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-	<div class="parallaxfeedmain"></div>
-	
-	{% set k = namespace(value=0)%}
-
+<div class="viewpostcont">
 	{% for i in post %}
-		
-		{% if k.value%6==0 %}
-			
-			<div class="parallaxcity"></div>
-			{% set k.value = k.value + 1 %}
-		{% else %}
-		
-			{% set k.value = k.value + 1 %}
-			<div class="viewpostcont">
-				<div class="card hoverable">
-					<div class="card-image waves-effect waves-block waves-light">
-			      		<img class="activator" src="static/mainPage/Yahoo_Logo.png">
-			    	</div>
-			    	<div class="card-content">
-				      <span class="card-title activator grey-text text-darken-4">{{ i.title}}<i class="material-icons right">more_vert</i></span>
-				      <p><a href="{{ i.link }}"> Click here to read more</a></p>
-				    </div>
-				    <div class="card-reveal">
-				      <span class="card-title grey-text text-darken-4">{{ i.title}}<i class="material-icons right">close</i></span>
-					  <p>{{i.content}}</p>	    
-					</div>
-				</div>
-			{% endif %}
+	<div class="card hoverable">
+		<div class="card-image waves-effect waves-block waves-light">
+      		<img class="activator" src="static/mainPage/Yahoo_Logo.png">
+    	</div>
+    	<div class="card-content">
+	      <span class="card-title activator grey-text text-darken-4">{{ i.title}}<i class="material-icons right">more_vert</i></span>
+	      <p><a href="{{ i.link }}"> Click here to read more</a></p>
+	    </div>
+	    <div class="card-reveal">
+	      <span class="card-title grey-text text-darken-4">{{ i.title}}<i class="material-icons right">close</i></span>
+		  <p>{{i.content}}</p>	    
+		</div>
+	</div>
 	{% endfor %}
 </div>
 {% else %}
