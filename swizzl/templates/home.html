@@ -2,10 +2,10 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
+<div class="parallaxhome"></div>
 <div class ="heading card-panel hoverable paras">
       <h2 class ="blue-text text-darken-2 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
 </div>
-<div class="parallax"></div>
 <div class="speccontainer">
   <!-- Archived Feeds Stored in DB -->
      <div class="card hoverable">
@@ -71,7 +71,14 @@
     <div></div>
     <div class="card hoverable">
       <div class="card-content">
-         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Sentiment Analysis</h2>
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Sentiment Analysis
+         <br>
+              <i class="material-icons medium">sentiment_very_dissatisfied</i>
+              <i class="material-icons medium">sentiment_dissatisfied</i>
+              <i class="material-icons medium">sentiment_neutral</i>
+              <i class="material-icons medium">sentiment_satisfied</i>
+              <i class="material-icons medium">sentiment_very_satisfied</i>
+         </h2>
       </div>    
     </div>
   </div>
