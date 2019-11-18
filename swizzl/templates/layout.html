@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+
 
     <!-- BootStrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -21,8 +21,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-    <!-- TailWind CSS -->
-    <link src="static/js/script.js">
+    <!-- External CSS -->
+    <!-- <link rel= "stylesheet" type= "text/css" href= "static/styles/parallax.css"> -->
+  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='parallax.css') }}">
+
+
     
     <!-- Google Font Link -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans+Condensed:300|Raleway&display=swap" rel="stylesheet">
@@ -75,21 +80,8 @@
         margin:25px 50px 50px 100px;
         display: grid;
         grid-gap: 1em;
-        grid-template-columns: 100%;
+        grid-template-columns: 40% 60%;
       }
-      .parallax {
-      /* The image used */
-      background-image: url("static/homePage/fruit1.jpg");
-
-      /* Set a specific height */
-      min-height: 500px; 
-
-      /* Create the parallax scrolling effect */
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
     </style>
    
     <title>Swizzl</title>
