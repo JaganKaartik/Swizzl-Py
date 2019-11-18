@@ -47,3 +47,9 @@
   grid-gap: 1em;
   grid-template-columns: 40% 60%;
 }
+
+.homebody{
+  background-image:url('homePage/exp2.jpg');
+  background-attachment: fixed;
+  background-size:100%;
+}

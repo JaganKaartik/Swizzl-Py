@@ -2,6 +2,7 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
+<div class="homebody">
 <div class="parallaxhome"></div>
 <div class ="heading card-panel hoverable paras">
       <h2 class ="blue-text text-darken-2 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
@@ -39,31 +40,30 @@
             </div>
     </div>
 </div>
+</div>
 {% else %}
 <!-- HOME PAGE OF SWIZZL if Current User isn't logged in... -->
-
+<div class="homebody">
 <div class="parallax"></div>
   <div class="heading">
     <div class="hidden"></div>
-    <div class="card hoverable">
-      <div class="card-content">
-         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
-      </div>    
-    </div>
+      <div class="card hoverable">
+          <div class="card-content">
+             <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
+          </div>    
+      </div>
   </div>
-</div>
 
 <!-- Next Section of Parallax -->
 <div class="parallax2"></div>
   <div class="heading">
     <div class="card hoverable">
       <div class="card-content">
-         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Latest information</h2>
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Freshly Fetched!</h2>
       </div>    
     </div>
   <div></div>
   </div>
-</div>
 
 <!-- Next Section of Parallax -->
 <div class="parallax3"></div>
@@ -71,7 +71,7 @@
     <div></div>
     <div class="card hoverable">
       <div class="card-content">
-         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Sentiment Analysis
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Sentiment Analysis!
          <br>
               <i class="material-icons medium">sentiment_very_dissatisfied</i>
               <i class="material-icons medium">sentiment_dissatisfied</i>
@@ -82,19 +82,17 @@
       </div>    
     </div>
   </div>
-</div>
 
 <!-- Next Section of Parallax -->
 <div class="parallax4"></div>
   <div class="heading">
     <div class="card hoverable">
       <div class="card-content">
-         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Subjectivity Analysis</h2>
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Subjectivity Analysis...</h2>
       </div>    
     </div>
     <div></div>
   </div>
 </div>
- 
 {% endif %}
 {% endblock content %}
