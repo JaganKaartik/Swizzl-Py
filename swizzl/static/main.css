@@ -1,7 +1,7 @@
 body 
     {
     padding-top: 80px;
-    background-image:url('bg-1.jpg');
+    background-image:url('images/bg-1.jpg');
     background-size:100%;
     background-repeat: repeat-y;
     background-attachment: fixed;

@@ -2,40 +2,99 @@
 {% block content %}
 {% if current_user.is_authenticated %}
 <!-- <h1> Welcome to the Home Page! </h1> -->
-<div class ="card-panel hoverable paras">
-	<h2 class ="blue-text text-darken-2">Welcome to the Home Page</h2>
+<div class="parallaxhome"></div>
+<div class ="heading card-panel hoverable paras">
+      <h2 class ="blue-text text-darken-2 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
 </div>
- <div class="card hoverable">
-        <div class="card-image">
-          <img src="static/homePage/swizzle.jpg">
-          <span class="card-title">Start Swizzlin</span>
-        </div>
-        <div class="card-content">
-          <p>Click Swizzle! to view all fecthed feeds, news and posts in one place for easy viewing</p>
-        </div>
-        <div class="card-action">
-          <a href="{{ url_for('prefform') }}" >Swizzle!</a>
-        </div>
-</div>
+<div class="speccontainer">
+  <!-- Archived Feeds Stored in DB -->
+     <div class="card hoverable">
+            <div class="card-image">
+              <img src="static/homePage/fetchHome.jpg">
+              <span class="card-title">Start Swizzlin</span>
+               <a class="btn-floating halfway-fab waves-effect waves-light red" href="{{ url_for('prefform') }}" >
+                <i class="material-icons">unarchive</i>
+               </a>
 
-<div class="card hoverable">
-        <div class="card-image">
-          <img src="static/homePage/dashboard.jpg">
-          <span class="card-title blue-text text-darken-4">Dashboard</span>
-        </div>
-        <div class="card-content">
-          <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
-        </div>
-        <div class="card-action">
-         <a href="{{ url_for('feedboard') }}">Let the curtains fall!</a>
-        </div>
+            </div>
+            <div class="card-content">
+              <p>Click Swizzle! to view all fecthed feeds, news and posts in one place for easy viewing</p>
+            </div>
+    </div>
 </div>
-
-<!-- <a href="{{ url_for('viewpost') }}">
-	<h2 class="card-panel hoverable blue-text text-darken-2 paras">View Posts</h2>
-</a> -->
+<div class="parallax2"></div>
+<div class="speccontainer">
+  <div></div>
+    <!-- Dashboard Redirects to this page -->
+    <div class="card hoverable">
+            <div class="card-image">
+              <img src="static/homePage/dashHome.jpg">
+              <span class="card-title">Dashboard</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light red" href="{{ url_for('feedboard') }}" >
+               <i class="material-icons">view_compact</i>
+              </a>
+            </div>
+            <div class="card-content">
+              <p>LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
+            </div>
+    </div>
+</div>
 {% else %}
-<h1 class="card-panel blue-text text-darken-2 paras">Feeds. News. Posts. in a Swizzl!</h1>
+<!-- HOME PAGE OF SWIZZL if Current User isn't logged in... -->
+
+<div class="parallax"></div>
+  <div class="heading">
+    <div class="hidden"></div>
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax2"></div>
+  <div class="heading">
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Latest information</h2>
+      </div>    
+    </div>
+  <div></div>
+  </div>
+</div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax3"></div>
+  <div class="heading">
+    <div></div>
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Sentiment Analysis
+         <br>
+              <i class="material-icons medium">sentiment_very_dissatisfied</i>
+              <i class="material-icons medium">sentiment_dissatisfied</i>
+              <i class="material-icons medium">sentiment_neutral</i>
+              <i class="material-icons medium">sentiment_satisfied</i>
+              <i class="material-icons medium">sentiment_very_satisfied</i>
+         </h2>
+      </div>    
+    </div>
+  </div>
+</div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax4"></div>
+  <div class="heading">
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="blue-text text-darken-2 phome" style="text-align:center;">Subjectivity Analysis</h2>
+      </div>    
+    </div>
+    <div></div>
+  </div>
+</div>
+ 
 {% endif %}
 {% endblock content %}
-

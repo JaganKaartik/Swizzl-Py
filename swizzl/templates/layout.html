@@ -1,4 +1,5 @@
- .
+<!-- Main Layout Page -->
+
 
 <!DOCTYPE html>
 <html>
@@ -6,8 +7,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     <!-- BootStrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -18,28 +17,16 @@
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- External CSS -->  
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='parallax.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
     
     <!-- Google Font Link -->
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans+Condensed:300|Raleway&display=swap" rel="stylesheet">
 
-    <style>
-      .title{
-        font-family: 'Bebas Neue', cursive;
-        font-size: 55px;
-      }
-      .paras{
-        font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 65px;
-        color: white;
-      }
-      .parashome{
-        font-family: 'Open Sans Condensed', sans-serif;
-        font-size: 200px;
-        color: white;
-      }
-    </style>
    
     <title>Swizzl</title>
 </head>
@@ -69,22 +56,8 @@
           </div>
         </div>
       </nav>
-
-      <div class="wrapper">
-      <div class="row">
-        <div class="col-md-8">
-          {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-              {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">
-                  {{ message }}
-                </div>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-          {% block content %}{% endblock %}
-        </div>
-      </div>
-      </div>
+      {% block content %}
+      {% endblock %}
+      <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
 </body>
 </html>
