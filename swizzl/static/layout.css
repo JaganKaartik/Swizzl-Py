@@ -1,0 +1,49 @@
+.title{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 55px;
+}
+.paras{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 65px;
+  color: white;
+}
+.parashome{
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 200px;
+  color: white;
+}
+.phome{
+  font-family: 'Raleway', sans-serif;
+}
+.wrapper{
+  grid-gap: 1em;
+  display: grid;
+  grid-template-columns: 20% 50% 30%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.speccontainer{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+  grid-template-rows: auto;
+}
+.viewpostcont{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 1em;
+}
+.homecont{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 1em;
+}
+.heading{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 40% 60%;
+}
