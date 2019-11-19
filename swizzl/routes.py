@@ -5,7 +5,7 @@ from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
-from swizzl.services.crawler import newsfetch
+# from swizzl.services.crawler import newsfetch
 from flask_admin.contrib.sqla import ModelView
 
 
