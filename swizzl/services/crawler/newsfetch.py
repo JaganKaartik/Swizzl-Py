@@ -6,10 +6,12 @@
 
 from bs4 import BeautifulSoup
 import requests 
+from services.mlearning import sentiment as st
+from services.mlearning import prof
 
 """
 	linkText(link)
-	This is the function that retrives text data from the "links" fetched from other rss crawlers
+	This is the function that retrives text data from the "links" fetched from the yahoo fetch rss crawler
 
 """
 
@@ -30,14 +32,13 @@ def YahooFetch():
     
     try:
         # Fetch All Required items
-
         titles = soup.findAll('title')
         links = soup.findAll('link')
         pubDates = soup.findAll('pubDate')
 
     except Exception as e :
+        
         # Return Empty if titles, links, descriptions, pubdates not found
-       
         print(e)
         return "Error"
 
@@ -53,17 +54,55 @@ def YahooFetch():
 
     FeedDict = {}
     temp = []
-    temptext = []
+    
+    
     try:
+        # Add titles to the Dictionary
+        
         for i in titles:
             temp.append(i.get_text())
+            temp = re.sub('&#39;s','',temp)
             FeedDict['title'] = temp
+            
+        # Add link and details regarding text contetn @ link to the Dictionary
+        
         temp = []
+        temptext = []
+        tbscore = []
+        vadscore = []
+        profvalue = []
         for i in links:
+            
+            # Append Links
             temp.append(i.get_text())
-            temptext.append(linkText(i.get_text()))
+            
+            # Append Text Content from Links
+            textval = linkText(i.get_text())
+            textval = re.sub('\"','\\"',textval)
+            textval = " \" " + textval + " \" "
+            temptext.append(textval)
+            
+            # Find Subjectivity, Objectivity of text content
+            score = st.sentimentTB(textval)
+            tbscore.append(score)
+            
+            # Find Sentiment of text content
+            score = st.sentimentVader(textval)
+            vadscore.append(score)
+            
+            # Find Profanity Score of content
+            textval = [textval]
+            score = float(prof.predProf(textval))
+            profvalue.append(score)
+            
+            # Add to Feeds Dictionary 
             FeedDict['link'] = temp
             FeedDict['linktext'] = temptext
+            FeedDict['tbScore'] = tbscore
+            FeedDict['vaderScore'] = vadscore
+            FeedDict['prof'] = profvalue
+            
+        # Add Published Dates to the Dictionary
         temp = []
         for i in pubDates:
             temp.append(i.get_text())
