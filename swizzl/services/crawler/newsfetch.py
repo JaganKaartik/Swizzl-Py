@@ -51,11 +51,14 @@ def YahooFetch():
     links.pop(0)
     pubDates.pop(0)
 
-    #Dictionary and Lists to hold crawled information
+    #Dictionary to hold crawled information
 
     FeedDict = {}
-    temp, temptext, tbscore, vadscore, profvalue = ([], ) * 5
-    
+    temp = []
+    temptext = []
+    tbscore = []
+    vadscore = []
+    profvalue = []
     try:
         # Add titles to the Dictionary
         for i in titles:
