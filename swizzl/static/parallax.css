@@ -1,5 +1,5 @@
 .parallax{
-background-image: url('homePage/fruit1.jpg');
+background-image: url('homePage/fruit1Zd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -8,7 +8,7 @@ background-size: cover;
 }
 
 .parallax2{
-background-image: url('homePage/info.jpeg');
+background-image: url('homePage/infoZd.jpeg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -17,7 +17,7 @@ background-size: cover;
 }
 
 .parallax3{
-background-image: url('homePage/sentiment.jpg');
+background-image: url('homePage/sentimentZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -26,7 +26,7 @@ background-size: cover;
 }
 
 .parallax4{
-background-image: url('homePage/subObj.jpg');
+background-image: url('homePage/subObjZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -35,7 +35,7 @@ background-size: cover;
 }
 
 .parallaxhome{
-background-image: url('homePage/home.jpg');
+background-image: url('homePage/homeZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -44,7 +44,7 @@ background-size: cover;
 }
 
 .parallaxhome2{
-background-image: url('homePage/home2.jpg');
+background-image: url('homePage/home2Zd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -53,7 +53,7 @@ background-size: cover;
 }
 
 .parallaxmac{
-background-image: url('feedsPage/macDesk1.jpg');
+background-image: url('feedsPage/macDesk1Zd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -62,7 +62,7 @@ background-size: cover;
 }
 
 .parallaxcity{
-background-image: url('feedsPage/city.jpg');
+background-image: url('feedsPage/cityZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
@@ -71,7 +71,7 @@ background-size: cover;
 }
 
 .parallaxfeedmain{
-background-image: url('feedsPage/main.jpg');
+background-image: url('feedsPage/mainZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;

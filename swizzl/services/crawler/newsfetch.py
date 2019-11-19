@@ -51,8 +51,6 @@ def YahooFetch():
     pubDates.pop(0)
 
     #Dictionary to hold crawled information
-    
-
 
     FeedDict = {}
     temp = []
