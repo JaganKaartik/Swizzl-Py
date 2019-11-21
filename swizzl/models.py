@@ -22,12 +22,17 @@ class User(db.Model, UserMixin):
 
 class Posts(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
-	Genre = db.Column(db.String(10), nullable=False)
-	title = db.Column(db.String(100), nullable=False)
-	link = db.Column(db.String(100), nullable=False)
+	title = db.Column(db.String(200), nullable=False)
+	link = db.Column(db.String(150), nullable=False)
+    linktext = db.Column(db.Text, nullable=False)
+    tbscore = db.Column(db.String(50),nullable=False)
+    vaderscorePos = db.Column(db.String(50),nullable=False)
+    vaderscoreNeut = db.Column(db.String(50),nullable=False)
+    vaderscoreNeg = db.Column(db.String(50),nullable=False)
+    vaderscoreComp = db.Column(db.String(20),nullable=False)
+    prof = db.Column(db.String(50),nullable=False)
 	pubDate = db.Column(db.String(50), nullable=False)
-	content = db.Column(db.Text, nullable=False)
 
 
 	def __repr__(self):
-		return f"Posts('{self.Genre}','{self.title}','{self.link}','{self.pubDate}','{self.content}')"
+		return f"Posts('{self.title}','{self.link}','{self.linktext}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"
