@@ -5,9 +5,22 @@ from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
-# from swizzl.services.crawler import newsfetch
 from flask_admin.contrib.sqla import ModelView
+from celery import Celery
 
+
+"""
+    TESTING BACKEND 
+"""
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0' 
+
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
+
+@celery.task()
+def add_together(a, b):
+    return a + b
 
 """
     Home Page of Document
@@ -136,12 +149,14 @@ class MyModelView(ModelView):
 
 
 
-""" Backend Issues """
+""" Major Backend Background Crawler Work"""
 
-@app.route("/feeds")
-@login_required
-def feeds():
-    return render_template('feeds.html', title = 'feed')
+# Display Top Feeds from Yahoo
+
+
+# /feeds url 
+
+
 
 # Choosing Preferences
 
