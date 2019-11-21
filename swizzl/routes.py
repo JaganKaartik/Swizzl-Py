@@ -7,6 +7,7 @@ from swizzl.models import User, Posts
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin.contrib.sqla import ModelView
 from celery import Celery
+from swizzl.services import newsfetch as snf
 
 
 """
@@ -18,9 +19,15 @@ app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
 
+@app.route("/feeds")
+def feeds():
+    fetchFeeds.delay()
+    return "A sync request sent"
+
 @celery.task()
-def add_together(a, b):
-    return a + b
+def fetchFeeds():
+    FeedDict = snf.YahooFetch()
+
 
 """
     Home Page of Document
