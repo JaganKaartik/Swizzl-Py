@@ -61,7 +61,6 @@ def YahooFetch():
         
         for i in titles:
             temp.append(i.get_text())
-            temp = re.sub('&#39;s','',temp)
             FeedDict['title'] = temp
             
         # Add link and details regarding text contetn @ link to the Dictionary
