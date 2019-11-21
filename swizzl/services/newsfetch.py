@@ -6,8 +6,8 @@
 
 from bs4 import BeautifulSoup
 import requests 
-from services.mlearning import sentiment as st
-from services.mlearning import prof
+from swizzl.services.mlearning import sentiment as st
+from swizzl.services.mlearning import prof
 
 """
 	linkText(link)
