@@ -27,25 +27,19 @@ def feeds():
 @celery.task()
 def fetchFeeds():
     FeedDict = snf.YahooFetch()
-
+    print(FeedDict['title'][0])
     limit = len(FeedDict['title'])
         
-    #reference f"Posts('{self.title}','{self.link}','{self.linktext}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"
 
     for i in range(0,limit):
-        post = Posts(title = FeedDict['title'][i], link = FeedDict['link'][i],linktext = FeedDict['linktext'][i], \
-               tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'], \
-               vaderscorePos = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
+        post = Posts(title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
         
         db.session.add(post)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except:
+            db.session.rollback()
 
-
-FeedDict['link'] = temp
-            FeedDict['linktext'] = temptext
-        tbscore   =  FeedDict['tbScore'] = tbscore
-            FeedDict['vaderScore'] = vadscore
-            FeedDict['prof'] = profvalue
 """
     Home Page of Document
     UI: Updated
