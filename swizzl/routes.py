@@ -58,7 +58,7 @@ def home():
 @app.route("/viewpost")
 @login_required
 def viewpost():
-    result = Posts.query.all()
+    result = ViewPosts.query.all()
     return render_template('viewpost.html',post = result,title = 'viewpost')
 
 

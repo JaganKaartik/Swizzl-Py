@@ -1,3 +1,6 @@
+<!-- Updated -->
+
+
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
@@ -31,7 +34,7 @@
             <div class="card-image">
               <img src="static/homePage/dashHomeZd.jpg">
               <span class="card-title">Dashboard</span>
-              <a class="btn-floating btn-large halfway-fab waves-effect waves-light red" href="{{ url_for('feeds') }}" >
+              <a class="btn-floating btn-large halfway-fab waves-effect waves-light red" href="{{ url_for('viewpost') }}" >
                <i class="material-icons">view_compact</i>
               </a>
             </div>

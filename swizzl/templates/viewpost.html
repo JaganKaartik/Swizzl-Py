@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<div class="viewpostcont">
+<!-- <div class="viewpostcont">
 	{% for i in post %}
 	<div class="card hoverable">
 		<div class="card-image waves-effect waves-block waves-light">
@@ -17,7 +17,10 @@
 		</div>
 	</div>
 	{% endfor %}
-</div>
+</div> -->
+{% for i in post %}
+{{ i.linkdata }}
+{% endfor %}
 {% else %}
 <h1>Please Log In to continue.....</h1>
 {% endif %}
