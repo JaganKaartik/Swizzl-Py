@@ -16,7 +16,10 @@ Visiting many separate websites frequently to find out if content on the site ha
 
 (Update: 21st November 2019)
 
-#### Running Celery Tasks
+#### How to run a celery task?
 
-* Directory ```/Swizzl```
-* Run ```celery -A swizzl.routes:celery worker --loglevel=info```
+* Go to Directory ```/Swizzl```
+* Run the redis server, ```redis-server```
+* Run ```celery -A swizzl.routes:celery worker --loglevel=info``` 
+* When ```\feeds``` link is visited, a async task is sent to the celery worker.
+

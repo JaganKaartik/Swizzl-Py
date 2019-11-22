@@ -1,30 +1,85 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<div class="viewpostcont">
+ 
+ <!-- Switch -->
 
-	{% for i in post %}
 
-	<div class="card hoverable">
-    	<div class="card-content">
-	      <span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
-	      <p><a href="{{ i.link }}"> Click here to read more</a></p>
-		  {% if i.tbscore|float > 0.5 %}
-		  	<p>Subjective</p>
-		  {% else %}
-		  	<p>Objective</p>
-		  {% endif %}
-	    </div>
-	    <div class="card-reveal">
-	      <span class="card-title grey-text text-darken-4">{{ i.title}}<i class="material-icons right">close</i></span>
-		  <p>{{i.linkdata}}</p>	    
-		</div>
+ <div class="majorpost">
+
+ 	<div class = "card hoverable">
+
+ 		<h3 class ="light-blue-text text-darken-4 " style="text-align:center;">Preferences</h3>
+
+
+			  <div class="switch">
+			    <label>
+			      Off
+			      <input type="checkbox">
+			      <span class="lever"></span>
+			      On
+			    </label>
+			  </div>
+
 	</div>
 
-	{% endfor %}
+	<div class="viewpostcont">
+
+		{% for i in post %}
+
+		{% if i.vaderscoreComp|float >= 0.05 %}
+			<!--   	<h6 class="green-text">Positive Sentiment</h6> -->
+			<div class="card hoverable green">
+
+		    	<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
+			      <p><a href="{{ i.link }}"> Click here to read more</a></p>
+				  {% if i.tbscore|float > 0.5 %}
+				  	<h6 class="teal-text text-darken-2">Subjective Content</h6>
+				  {% else %}
+				  	<h6 class="cyan-text text-darken-2">Objective Content</h6>
+				  {% endif %}
+			    </div>
+
+			   	<div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">{{ i.title}}</span>
+				  <p>{{i.linkdata}}</p>	 
+				</div>
+
+			</div>
+
+		 {% else %}
+			  	<!-- <h6 class="red-text">Negative Sentiment</h6> -->
+			  	<div class="card hoverable red accent-1">
+
+		    	<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
+			      <p><a href="{{ i.link }}"> Click here to read more</a></p>
+				  {% if i.tbscore|float > 0.5 %}
+				  	<h6 class="teal-text text-darken-2">Subjective Content</h6>
+				  {% else %}
+				  	<h6 class="cyan-text text-darken-2">Objective Content</h6>
+				  {% endif %}
+			    </div>
+
+			   	<div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">{{ i.title}}</span>
+				  <p>{{i.linkdata}}</p>	 
+				</div>
+
+			</div>
+
+		 {% endif %}
+
+		{% endfor %}
+
+	</div>
+	<div></div>
 
 </div>
 {% else %}
+
 <h1>Please Log In to continue.....</h1>
+
 {% endif %}
 {% endblock content %}
