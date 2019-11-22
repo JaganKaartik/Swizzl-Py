@@ -19,6 +19,12 @@
 .phome{
   font-family: 'Raleway', sans-serif;
 }
+.innerPref{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-gap: 1em;
+}
 .wrapper{
   grid-gap: 1em;
   display: grid;
@@ -37,6 +43,13 @@
   margin:25px 50px 50px 100px;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 1em;
+}
+.majorpost{
+  margin:25px 50px 50px 100px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 500px 500px;
   grid-gap: 1em;
 }
 .homecont{
