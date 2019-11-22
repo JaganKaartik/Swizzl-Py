@@ -20,7 +20,7 @@ class User(db.Model, UserMixin):
 		return role in self.roles
 
 
-class Posts(db.Model):
+class ViewPosts(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(200), nullable=False)
 	link = db.Column(db.String(150), nullable=False)
@@ -35,4 +35,4 @@ class Posts(db.Model):
 
 
 	def __repr__(self):
-		return f"Posts('{self.title}','{self.link}','{self.linkdata}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"
+		return f"ViewPosts('{self.title}','{self.link}','{self.linkdata}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"

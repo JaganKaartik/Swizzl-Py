@@ -3,7 +3,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from swizzl.models import User, Posts
+from swizzl.models import User, ViewPosts
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin.contrib.sqla import ModelView
 from celery import Celery
@@ -27,12 +27,11 @@ def feeds():
 @celery.task()
 def fetchFeeds():
     FeedDict = snf.YahooFetch()
-    print(FeedDict['title'][0])
     limit = len(FeedDict['title'])
         
 
     for i in range(0,limit):
-        post = Posts(title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
+        post = ViewPosts(title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
         
         db.session.add(post)
         try:
@@ -59,8 +58,8 @@ def home():
 @app.route("/viewpost")
 @login_required
 def viewpost():
-    result = Posts.query.all()
-    return render_template('viewpost.html',post = result,title = 'viewpost')
+    result = ViewPosts.query.all()
+    return render_template('viewpost.html',title = 'viewpost',post = result)
 
 
 """
@@ -166,57 +165,5 @@ class MyModelView(ModelView):
                 return redirect(url_for('login'))
 
 
-
-""" Major Backend Background Crawler Work"""
-
-# Display Top Feeds from Yahoo
-
-
-# /feeds url 
-
-
-
-# Choosing Preferences
-
-@login_required
-@app.route('/pref')
-def prefform():
-   return render_template('pref.html')
-
-# View All Feeds (Fix Limit Issues)
-
-@login_required
-@app.route('/feedboard',methods = ['POST', 'GET'])
-def feedboard():
-    if request.method == 'POST':
-        genre = request.form['Genre']
-        website = request.form['Website']
-    else:
-        return redirect(url_for('home'))
-    if not request.form['Genre']:
-        flash('Please enter Genre','danger')
-        return redirect(url_for('home'))
-    if(website == 'NY'):
-        Gdict = scraping.nyScrape(genre)
-    elif(website == 'GL'):
-        Gdict = scraping.glScrape(genre)
-    elif(website == 'GA'):
-        Gdict = scraping.guaScrape(genre)
-    else:
-        flash('Please enter correct abbrevation')
-        return redirect(url_for('home'))
-    if Gdict == "Empty":
-        flash('No news in the genre, please re-enter genre','danger')
-        return redirect (url_for('home'))
-
-    limit = len(Gdict['title'])
-    
-    for i in range(0,limit-1):
-        post = Posts(Genre = genre,title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
-        db.session.add(post)
-        db.session.commit()
-    
-    
-    return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
 
 

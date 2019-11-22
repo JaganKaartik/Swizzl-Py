@@ -52,7 +52,9 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
+
 /*Work in Progress*/
+
 
 .parallaxmac{
 background-image: url('feedsPage/macDesk1Zd.jpg');
@@ -63,8 +65,8 @@ background-repeat: no-repeat;
 background-size: cover;
 }
 
-.parallaxcity{
-background-image: url('feedsPage/cityZd.jpg');
+.parallaxprof{
+background-image: url('homePage/filterZd.jpg');
 min-height: 500px; 
 background-attachment: fixed;
 background-position: center;
