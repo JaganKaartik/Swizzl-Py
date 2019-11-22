@@ -32,6 +32,13 @@
   margin-left: 30px;
   margin-right: 30px;
 }
+.innerPost{
+  margin:0px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 1em;
+  grid-template-rows: auto;
+}
 .speccontainer{
   margin:25px 50px 50px 100px;
   display: grid;
@@ -49,7 +56,7 @@
   margin:25px 50px 50px 100px;
   display: grid;
   grid-template-columns: 20% 80%;
-  grid-template-rows: 500px 500px;
+  grid-template-rows: 250px 500px;
   grid-gap: 1em;
 }
 .homecont{

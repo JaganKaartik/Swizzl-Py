@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='parallax.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
+
+    <!-- External JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='viewpost.js') }}"></script> 
     
     <!-- Google Font Link -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans+Condensed:300|Raleway|Teko|Ibarra+Real+Nova&display=swap" rel="stylesheet">
@@ -58,6 +61,7 @@
       </nav>
       {% block content %}
       {% endblock %}
-      <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
+      <!-- <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
+      <script>$(document).ready(function(){$("#positive").click(function(){$("#posCard").show();});$("#negative").click(function(){$("#posCard").hide();});});</script> -->
 </body>
 </html>
