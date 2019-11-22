@@ -59,7 +59,7 @@ def home():
 @login_required
 def viewpost():
     result = ViewPosts.query.all()
-    return render_template('viewpost.html',post = result,title = 'viewpost')
+    return render_template('viewpost.html',title = 'viewpost',post = result)
 
 
 """
