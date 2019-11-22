@@ -9,6 +9,7 @@ import requests
 from swizzl.services.mlearning import sentiment as st
 from swizzl.services.mlearning import prof
 import re
+import html
 
 """
 	linkText(link)
@@ -61,7 +62,7 @@ def YahooFetch():
         # Add titles to the Dictionary
         
         for i in titles:
-            temp.append(i.get_text())
+            temp.append(html.unescape(i.get_text()))
             FeedDict['title'] = temp
             
         # Add link and details regarding text contetn @ link to the Dictionary
@@ -74,10 +75,10 @@ def YahooFetch():
         for i in links:
             
             # Append Links
-            temp.append(i.get_text())
+            temp.append(html.unescape(i.get_text()))
             
             # Append Text Content from Links
-            textval = linkText(i.get_text())
+            textval = linkText(html.unescape(i.get_text()))
             textval = re.sub('\"','\\"',textval)
             textval = " \" " + textval + " \" "
             temptext.append(textval)
