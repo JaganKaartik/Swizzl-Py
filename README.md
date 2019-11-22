@@ -12,6 +12,17 @@ Swizzl is a web application which aggregates syndicated web content from online 
 
 Visiting many separate websites frequently to find out if content on the site has been updated can take a long time. Aggregation technology helps to consolidate many websites into one page that can show the new or updated information from many sites. Aggregators reduce the time and effort needed to regularly check websites for updates, creating a unique information space or personal newspaper. Once subscribed to a feed, an aggregator is able to check for new content at user-determined intervals and retrieve the update.
 
+**UI**
+
+* Why Swizzl?
+
+![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/intro.gif)
+
+* UI (Admin-View)
+
+![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/admin.gif)
+
+
 **Testing**
 
 (Update: 21st November 2019)
