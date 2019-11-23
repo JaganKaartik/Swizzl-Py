@@ -1,1 +1,1 @@
-web: gunicorn swizzl.__init__:app
+web: gunicorn swizzl.app:app
