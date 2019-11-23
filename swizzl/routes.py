@@ -1,90 +1,74 @@
-#Import Statements
+# Import Statements
 
 from flask import render_template, flash, redirect, url_for, request
 from swizzl import app, db, bcrypt
 from swizzl.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from swizzl.models import User, Posts
+from swizzl.models import User, ViewPosts
 from flask_login import login_user, current_user, logout_user, login_required
-from swizzl.crawler import scraping
 from flask_admin.contrib.sqla import ModelView
+from celery import Celery
+from swizzl.services import newsfetch as snf
 
 
+"""
+    TESTING BACKEND 
+"""
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0' 
 
-#HomePage or the Root File
+celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
+celery.conf.update(app.config)
 
+@app.route("/feeds")
+def feeds():
+    fetchFeeds.delay()
+    return render_template('home.html')
+
+@celery.task()
+def fetchFeeds():
+    FeedDict = snf.YahooFetch()
+    limit = len(FeedDict['title'])
+        
+
+    for i in range(0,limit):
+        post = ViewPosts(title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
+        
+        db.session.add(post)
+        try:
+            db.session.commit()
+        except:
+            db.session.rollback()
+
+"""
+    Home Page of Document
+    UI: Updated
+    Backend: Updated
+"""
 @app.route("/")
 @app.route("/home")
-@login_required
 def home():
     return render_template('home.html')
 
 
-
-#Login Required for the User Choosing Preferences
-
-
-
-@login_required
-@app.route('/pref')
-def prefform():
-   return render_template('pref.html')
-
-
-
-#View All Feeds (Fix Limit Issues)
-
-
-
-@login_required
-@app.route('/feedboard',methods = ['POST', 'GET'])
-def feedboard():
-    if request.method == 'POST':
-        genre = request.form['Genre']
-        website = request.form['Website']
-    else:
-        return redirect(url_for('home'))
-    if not request.form['Genre']:
-        flash('Please enter Genre','danger')
-        return redirect(url_for('home'))
-    if(website == 'NY'):
-        Gdict = scraping.nyScrape(genre)
-    elif(website == 'GL'):
-        Gdict = scraping.glScrape(genre)
-    elif(website == 'GA'):
-        Gdict = scraping.guaScrape(genre)
-    else:
-        flash('Please enter correct abbrevation')
-        return redirect(url_for('home'))
-    if Gdict == "Empty":
-        flash('No news in the genre, please re-enter genre','danger')
-        return redirect (url_for('home'))
-
-    limit = len(Gdict['title'])
-    
-    for i in range(0,limit-1):
-        post = Posts(Genre = genre,title = Gdict['title'][i],link = Gdict['link'][i],pubDate = Gdict['pubdate'][i],content = Gdict['description'][i])
-        db.session.add(post)
-        db.session.commit()
-    
-    
-    return render_template('feeds.html',dict = Gdict,x=limit, title = 'feed')
-
-
-
-
-
+"""
+    View All Posts from the Database
+    UI: Needs Work
+    Backend: Needs Work
+"""
 @app.route("/viewpost")
 @login_required
 def viewpost():
-    result = Posts.query.all()
-    return render_template('viewpost.html',post = result,title = 'viewpost')
-
-#User_Registration and Redirect to Log in page
+    result = ViewPosts.query.all()
+    return render_template('viewpost.html',title = 'viewpost',post = result)
 
 
-#Explicitly Adding Admin and Users
-
-
+"""
+    User Registration
+    -> Redirects to Log in page
+    Explicitly Adding Admin and Users
+    UI: Updated
+    Backend: Updated
+"""
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -103,9 +87,12 @@ def register():
     return render_template('register.html', title='Register', form = form)
 
 
-#User_Login and Redirect to Home Page
-
-
+"""
+    User Login
+    -> Redirects to Home Page (UI: Logged in view)
+    UI: Updated
+    Backend: Updated
+"""
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -121,7 +108,12 @@ def login():
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form = form)
 
-
+"""
+    User Logout
+    -> Redirects to Home Page (UI: Logged out view)
+    UI: Updated
+    Backend: Updated
+"""
 
 @app.route("/logout")
 @login_required
@@ -131,18 +123,10 @@ def logout():
     return redirect(url_for('home'))
 
 
-
-@app.route("/feeds")
-@login_required
-def feeds():
-    return render_template('feeds.html', title = 'feed')
-
-
-""" User Profile Management """
-
-
-#Updating Account Information
-
+""" 
+    User Profile Management 
+    Updating Account Information
+"""
 
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
@@ -158,12 +142,12 @@ def account():
     return render_template('account.html', title='Account', form = form)
 
 
-""" Admin Management """
 
+""" 
+    Admin Management 
+    Creating the Admin Model View
 
-
-#Creating the Admin Model View
-
+"""
 
 @login_required
 @app.route("/admin ")
@@ -179,3 +163,7 @@ class MyModelView(ModelView):
 
             def inaccessible_callback(self,name,**kwargs):
                 return redirect(url_for('login'))
+
+
+
+

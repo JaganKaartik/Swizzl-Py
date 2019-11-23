@@ -1,14 +1,89 @@
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-{% for i in post %}
-<h2>{{ i.title}}</h3>
-<h5>{{ i.content}}</h3>
-<h5> <a href="{{ i.link }}"> Click here to read more</a></h3>
-<h5>Published Date : {{ i.pubDate}}</h5>
-<h5>Genre : {{ i.Genre}}</h5>
-{% endfor %}
+ 
+ <!-- Switch -->
+
+
+ <div class="majorpost">
+
+ 	<div class = "card hoverable">
+
+ 		<h5 class ="light-blue-text text-darken-4 " style="text-align:center;">Preferences</h5>
+
+			 <p>Sentiment</p>
+			  <div class="switch">
+			    <label>
+			      Negative
+			      <input id="sentiment"  onclick="sentimentFn()" type="checkbox">
+			      <span class="lever"></span>
+			      Positive
+			    </label>
+			  </div>
+			  <br>
+
+			  <p>Content</p>
+			  <div class="switch">
+			    <label>
+			      Subjective
+			      <input id="content"  onclick="contentFn()" type="checkbox">
+			      <span class="lever"></span>
+			      Objective
+			    </label>
+			  </div>
+			  <!-- <button id="positive">Pos</button>
+			  <button id="negative">Neg</button> -->
+			  <!-- <br>
+			  <div class="innerPref">
+			  	<div>
+			  		<i class="medium material-icons green-text">stop</i><p>Positive Content</p>
+				</div>
+				<div>
+			  		<i class="medium material-icons red-text">stop</i><p>Negative Content</p>
+			  	</div> 
+			  </div> -->
+
+	</div>
+
+	<div class="viewpostcont">
+
+		{% for i in post %}
+
+			  	<div class="card hoverable">
+
+		    	<div class="card-content">
+				  <span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
+			      <p><a href="{{ i.link }}"> Click here to read more</a></p>
+					  {% if i.tbscore|float > 0.5 %}
+					  	<h6 class="teal-text text-darken-2">Subjective Content</h6>
+					  {% else %}
+					  	<h6 class="cyan-text text-darken-2">Objective Content</h6>
+					  {% endif %}
+
+					  {% if i.vaderscoreComp|float >= 0.05 %}
+			  			<h6 class="green-text">Positive Sentiment</h6>
+					  {% else %}
+					  	<h6 class="red-text">Negative Sentiment</h6>
+					  {% endif %}
+			    </div>
+
+			   	<div class="card-reveal">
+			      <span class="card-title grey-text text-darken-4">{{ i.title}}</span>
+				  <p>{{i.linkdata}}</p>	 
+				</div>
+
+			</div>
+
+
+		{% endfor %}
+
+	</div>
+	<div></div>
+
+</div>
 {% else %}
+
 <h1>Please Log In to continue.....</h1>
+
 {% endif %}
 {% endblock content %}

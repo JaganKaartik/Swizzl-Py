@@ -1,9 +1,124 @@
+<!-- Updated -->
+
+
 {% extends "layout.html" %}
 {% block content %}
 {% if current_user.is_authenticated %}
-<h1> Welcome to the Home Page! </h1>
-<a href="{{ url_for('prefform') }}" ><font size ="10" colour ="green">Start Exploring</font></a>
+<!-- <h1> Welcome to the Home Page! </h1> -->
+<div class="homebody">
+<div class="parallaxhome"></div>
+<div class ="heading card-panel hoverable paras">
+      <h2 class ="light-blue-text text-darken-4 " style="text-align:center;">Welcome {{ current_user.username }} to the Home Page</h2>
+</div>
+<div class="speccontainer">
+  <!-- Archived Feeds Stored in DB -->
+     <div class="card hoverable">
+            <div class="card-image">
+              <img src="static/homePage/fetchHomeZd.jpg">
+              <span class="card-title">Start Swizzlin</span>
+               <a class="btn-floating btn-large halfway-fab waves-effect waves-light red" href="{{ url_for('feeds') }}" >
+                  Swizzl!
+               </a> 
+
+            </div>
+            <div class="card-content">
+              <h5 class="hometext">Click the Swizzl button to fetch updated feeds, news and posts in one place for easy viewing.</h5>
+            </div>
+    </div>
+</div>
+<div class="parallaxhome2"></div>
+<div class="speccontainer">
+  <div></div>
+    <!-- Dashboard Redirects to this page -->
+    <div class="card hoverable">
+            <div class="card-image">
+              <img src="static/homePage/dashHomeZd.jpg">
+              <span class="card-title">Dashboard</span>
+              <a class="btn-floating btn-large halfway-fab waves-effect waves-light red" href="{{ url_for('viewpost') }}" >
+               <i class="material-icons">view_compact</i>
+              </a>
+            </div>
+            <div class="card-content">
+              <h5 class="hometext">Hit the button to view all freshly fetched feeds, news and posts.</h5>
+            </div>
+    </div>
+</div>
+</div>
 {% else %}
-<h1> Xplore: A News Aggregator System</h1>
+<!-- HOME PAGE OF SWIZZL if Current User isn't logged in... -->
+<div class="card">
+<div class="card-content">
+    <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Why use Swizzl ? </h2>
+</div> 
+</div>
+
+<div class="homebody">
+
+<div class="parallax"></div>
+
+  <div class="heading">
+    <div class="hidden"></div>
+      <div class="card hoverable">
+          <div class="card-content">
+             <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Feeds. News. Posts. in a Swizzl!</h2>
+          </div>    
+      </div>
+  </div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax2"></div>
+
+  <div class="heading">
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Freshly Fetched!</h2>
+      </div>    
+    </div>
+    <div class="hidden"></div>
+  </div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax3"></div>
+
+  <div class="heading">
+    <div></div>
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Sentiment Analysis!
+         <br>
+              <i class="red-text material-icons medium">sentiment_very_dissatisfied</i>
+              <i class="orange-text material-icons medium">sentiment_dissatisfied</i>
+              <i class="yellow-text text-darken-1 material-icons medium">sentiment_neutral</i>
+              <i class="light-green-text material-icons medium">sentiment_satisfied</i>
+              <i class="green-text material-icons medium">sentiment_very_satisfied</i>
+         </h2>
+      </div>    
+    </div>
+  </div>
+
+<!-- Next Section of Parallax -->
+<div class="parallax4"></div>
+
+  <div class="heading">
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Subjectivity Analysis</h2>
+      </div>    
+    </div>
+    <div></div>
+  </div>
+
+<!-- Next Section of Parallax -->
+<div class="parallaxprof"></div>
+
+  <div class="heading">
+    <div></div>
+    <div class="card hoverable">
+      <div class="card-content">
+         <h2 class ="light-blue-text text-darken-4 phome" style="text-align:center;">Profanity Filtered!</h2>
+      </div>    
+    </div>
+  </div>
+</div>
 {% endif %}
 {% endblock content %}
