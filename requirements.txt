@@ -13,4 +13,6 @@ Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 profanity-check==1.0.3 
 vaderSentiment==3.2.1  
-textblob==0.15.2   
+textblob==0.15.2
+nltk==3.4.5
+gunicorn==19.9.0
