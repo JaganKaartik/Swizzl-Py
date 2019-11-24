@@ -61,3 +61,17 @@ Swizzl is a web application which aggregates syndicated web content from online 
 * Run ```celery -A swizzl.routes:celery worker --loglevel=info``` 
 * When ```\feeds``` link is visited, a async task is sent to the celery worker.
 
+
+#### Image Credits
+
+[Photo by AbsolutVision on Unsplash](https://unsplash.com/photos/WYd_PkCa1BY)
+
+[Photo by Alex Shutin on Unsplash](https://unsplash.com/photos/kKvQJ6rK6S4)
+
+[Photo by Andreas Chu on Unsplash](https://unsplash.com/photos/YodH2WzN6YU)
+
+[Photo by Chuttersnap on Unsplash](https://unsplash.com/photos/aku7Zlj_x_o)
+
+[Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/56R8TzG7Lzc)
+
+[Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/bs1eqd6zSiU)
