@@ -7,7 +7,7 @@ Swizzl is a web application which aggregates syndicated web content from online 
 ## Features of Swizzl
 
 * Freshly Fetched Feeds from souces like (yahoonews, etc)
-* Swizzl fetches relevant information along with the news content found in these links. :sunglasses:  ```Advanced Crawler```
+* Swizzl fetches relevant information along with the news content found in these links. :sunglasses: [**Advanced Crawler**](https://github.com/JaganKaartik/Swizzl/blob/master/swizzl/services/newsfetch.py)
 * Analysis such as the mentioned below are performed on these news content! 
     * Sentiment Analysis via ```VADER-Sentiment-Analysis```
     * Subjectivity and Objectivity measure from ```textBlob```
