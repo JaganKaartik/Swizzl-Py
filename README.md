@@ -11,11 +11,14 @@ Swizzl is a web application which aggregates syndicated web content from online 
 * Analysis such as the mentioned below are performed on these news content! 
     * Sentiment Analysis via ```VADER-Sentiment-Analysis```
     * Subjectivity and Objectivity measure from ```textBlob```
-    * Profanity Scoring
+    * Profanity measure from ```profanity-check```
 * Benefits include! Improved filtering of fetched feeds.
-    * Eg. If a user needs ```+ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs only  ```+ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs only  ```-ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs both ```+ve sentiment```and ```-ve sentiment``` posts, the UI enables to view both such news.
     * Eg. If a user needs more subjective posts, the UI enables to toggle to view only such news.
-    * Eg. If the user is a minor, existing profanity filter will toggle only SFW posts.
+    * Eg. If a user needs more objective posts, the UI enables to toggle to view only such news.
+    * Eg. The ```predict_prob``` function from the profanity-check library, enables to predict the profanity content in the link text. A heuristic such as a threshold could be set to filter offensive content. If the user is a minor, existing profanity filter will toggle only SFW posts.
     
 ## Swizzl UI 
 
