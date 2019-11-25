@@ -20,7 +20,7 @@ Swizzl is a web application which aggregates syndicated web content from online 
     * Eg. If a user needs more objective posts, the UI enables to toggle to view only such news.
     * Eg. The ```predict_prob``` function from the profanity-check library, enables to predict the profanity content in the link text. A heuristic such as a threshold could be set to filter offensive content. If the user is a minor, existing profanity filter will toggle only SFW posts.
     
-## Requirements
+## Technology Stack
 
 * Python ```3.6.5``` and above.
 * Other python library dependencies specified in the ```requirements.txt```
