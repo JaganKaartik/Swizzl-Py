@@ -31,7 +31,12 @@ def fetchFeeds():
         
 
     for i in range(0,limit):
-        post = ViewPosts(title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
+        sentval = float(FeedDict['vaderScore'][i]['compound'])
+        sid = 0
+        if(sentval >= 0.05):
+            sid = 1
+            
+        post = ViewPosts(sentid = sid,title = FeedDict['title'][i], link = FeedDict['link'][i],linkdata = FeedDict['linktext'][i],tbscore = FeedDict['tbScore'][i],vaderscorePos = FeedDict['vaderScore'][i]['pos'],vaderscoreNeut = FeedDict['vaderScore'][i]['neu'],vaderscoreNeg = FeedDict['vaderScore'][i]['neg'],vaderscoreComp = FeedDict['vaderScore'][i]['compound'],prof = FeedDict['prof'][i],pubDate = FeedDict['pubdate'][i])
         
         db.session.add(post)
         try:

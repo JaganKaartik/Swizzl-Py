@@ -22,6 +22,7 @@ class User(db.Model, UserMixin):
 
 class ViewPosts(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
+	sentid = db.Column(db.Integer, primary_key=False)
 	title = db.Column(db.String(200), nullable=False)
 	link = db.Column(db.String(150), nullable=False)
 	linkdata = db.Column(db.String(2000), nullable=False)
@@ -35,4 +36,4 @@ class ViewPosts(db.Model):
 
 
 	def __repr__(self):
-		return f"ViewPosts('{self.title}','{self.link}','{self.linkdata}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"
+		return f"ViewPosts('{self.sentid}','{self.title}','{self.link}','{self.linkdata}','{self.tbscore}','{self.vaderscorePos}',{self.vaderscoreNeut}',{self.vaderscoreNeg}','{self.vaderscoreComp}','{self.prof}','{self.pubDate}')"
