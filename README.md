@@ -106,3 +106,4 @@ celery -A swizzl.routes:celery worker --loglevel=info
 [Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/56R8TzG7Lzc)
 
 [Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/bs1eqd6zSiU)
+web: gunicorn run:app
