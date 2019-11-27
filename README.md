@@ -27,28 +27,34 @@ Swizzl is a web application which aggregates syndicated web content from online 
 * Celery Task Queue ```4.2```
 * Redis-Server ```5.0.5```
 
-## Instructions
+## Instructions to use this Software
 
 1. Change directory to project root ```/Swizzl```
 
-2. Start the redis server by typing  ```redis-server``` in the terminal.
+2. Python Virtual Enviornment
 
-3. Start the flask application by typing
-```python
-python run.py
-```
-or
-```python
-   export FLASK_APP=run.py
-   flask run
-```
-4. Start the celery task queue in another tab/terminal by typing
+    2.1. Create Python Virtual Enviornment by ```virtualenv "env name"``` here we have used "Swizzl" as the name of the virtual enviornment. So, type  ```virtualenv Swizzl```.
+    2.2. Activate the virtual enviornment by ```source "env name"/bin/activate``` which is ```source Swizzl/bin/activate``` here. 
+
+3. Start the Application
+
+    ```python
+       python run.py
+    ``` 
+   or  
+    ```python
+       export FLASK_APP=run.py
+       flask run
+    ```
+4. Start the redis server by typing  ```redis-server``` in the terminal.
+
+5. Start the celery task queue in another tab/terminal by typing
 ```
 celery -A swizzl.routes:celery worker --loglevel=info
 ``` 
-5. When ```\feeds``` link is visited inside the application, an asynchonous task is sent to the celery worker. 
+6. When ```\feeds``` link is visited inside the application, an asynchonous task is sent to the celery worker. 
 
-6. Enjoy Reading :book: Cheers! :sunglasses:
+7. Enjoy Reading :book: Cheers! :sunglasses:
 
 
 ## Swizzl UI 
