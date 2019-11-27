@@ -1,1 +1,1 @@
-web: gunicorn Swizzl:run
+web: gunicorn Swizzl.run:app
