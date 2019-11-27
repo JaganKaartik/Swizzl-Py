@@ -34,6 +34,7 @@ Swizzl is a web application which aggregates syndicated web content from online 
 2. Python Virtual Enviornment
 
     2.1. Create Python Virtual Enviornment by ```virtualenv "env name"``` here we have used "Swizzl" as the name of the virtual enviornment. So, type  ```virtualenv Swizzl```.
+    
     2.2. Activate the virtual enviornment by ```source "env name"/bin/activate``` which is ```source Swizzl/bin/activate``` here. 
 
 3. Start the Application
