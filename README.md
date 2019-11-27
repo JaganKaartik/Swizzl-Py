@@ -7,16 +7,50 @@ Swizzl is a web application which aggregates syndicated web content from online 
 ## Features of Swizzl
 
 * Freshly Fetched Feeds from souces like (yahoonews, etc)
-* Swizzl fetches relevant information along with the news content found in these links. :sunglasses:  ```Advanced Crawler```
+* Swizzl fetches relevant information along with the news content found in these links. [**Crawler**](https://github.com/JaganKaartik/Swizzl/blob/master/swizzl/services/newsfetch.py)
 * Analysis such as the mentioned below are performed on these news content! 
     * Sentiment Analysis via ```VADER-Sentiment-Analysis```
     * Subjectivity and Objectivity measure from ```textBlob```
-    * Profanity Scoring
+    * Profanity measure from ```profanity-check```
 * Benefits include! Improved filtering of fetched feeds.
-    * Eg. If a user needs ```+ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs only  ```+ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs only  ```-ve sentiment``` posts, the UI enables to toggle to view only such news.
+    * Eg. If a user needs both ```+ve sentiment```and ```-ve sentiment``` posts, the UI enables to view both such news.
     * Eg. If a user needs more subjective posts, the UI enables to toggle to view only such news.
-    * Eg. If the user is a minor, existing profanity filter will toggle only SFW posts.
+    * Eg. If a user needs more objective posts, the UI enables to toggle to view only such news.
+    * Eg. The ```predict_prob``` function from the profanity-check library, enables to predict the profanity content in the link text. A heuristic such as a threshold could be set to filter offensive content. If the user is a minor, existing profanity filter will toggle only SFW posts.
     
+## Technology Stack
+
+* Python ```3.6.5``` and above.
+* Other python library dependencies specified in the ```requirements.txt```
+* Celery Task Queue ```4.2```
+* Redis-Server ```5.0.5```
+
+## Instructions
+
+1. Change directory to project root ```/Swizzl```
+
+2. Start the redis server by typing  ```redis-server``` in the terminal.
+
+3. Start the flask application by typing
+```python
+python run.py
+```
+or
+```python
+   export FLASK_APP=run.py
+   flask run
+```
+4. Start the celery task queue in another tab/terminal by typing
+```
+celery -A swizzl.routes:celery worker --loglevel=info
+``` 
+5. When ```\feeds``` link is visited inside the application, an asynchonous task is sent to the celery worker. 
+
+6. Enjoy Reading :book: Cheers! :sunglasses:
+
+
 ## Swizzl UI 
 
 ### Login Page
@@ -51,10 +85,17 @@ Swizzl is a web application which aggregates syndicated web content from online 
 * The subjectivity is a float within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is very subjective. The tbscore attribute keeps track of subjectivity.
 
 
-#### How to run a celery task?
 
-* Go to Directory ```/Swizzl```
-* Run the redis server, ```redis-server```
-* Run ```celery -A swizzl.routes:celery worker --loglevel=info``` 
-* When ```\feeds``` link is visited, a async task is sent to the celery worker.
+#### Image Credits
 
+[Photo by AbsolutVision on Unsplash](https://unsplash.com/photos/WYd_PkCa1BY)
+
+[Photo by Alex Shutin on Unsplash](https://unsplash.com/photos/kKvQJ6rK6S4)
+
+[Photo by Andreas Chu on Unsplash](https://unsplash.com/photos/YodH2WzN6YU)
+
+[Photo by Chuttersnap on Unsplash](https://unsplash.com/photos/aku7Zlj_x_o)
+
+[Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/56R8TzG7Lzc)
+
+[Photo by Harley-Davidson on Unsplash](https://unsplash.com/photos/bs1eqd6zSiU)
