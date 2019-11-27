@@ -52,6 +52,7 @@
 			  	<div class="card hoverable">
 
 		    	<div class="card-content">
+
 				  <span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
 			      <p><a href="{{ i.link }}"> Click here to read more</a></p>
 					  {% if i.tbscore|float > 0.5 %}
@@ -72,8 +73,7 @@
 				  <p>{{i.linkdata}}</p>	 
 				</div>
 
-			</div>
-
+			</div>  {{i.id}}
 
 		{% endfor %}
 
