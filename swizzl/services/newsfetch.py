@@ -30,7 +30,7 @@ def linkText(link):
 def YahooFetch():
     url = "https://news.yahoo.com/rss/"
     url = requests.get(url)
-    soup = BeautifulSoup(url.text,'lxml')
+    soup = BeautifulSoup(url.text,'xml')
     
     try:
         # Fetch All Required items
@@ -50,7 +50,7 @@ def YahooFetch():
     titles.pop(0)
     links.pop(0)
     links.pop(0)
-    # pubDates.pop(0)
+    pubDates.pop(0)
 
     #Dictionary to hold crawled information
 
