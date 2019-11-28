@@ -30,7 +30,7 @@ def linkText(link):
 def YahooFetch():
     url = "https://news.yahoo.com/rss/"
     url = requests.get(url)
-    soup = BeautifulSoup(url.text,'xml')
+    soup = BeautifulSoup(url.text,'lxml')
     
     try:
         # Fetch All Required items
