@@ -50,7 +50,7 @@ def YahooFetch():
     titles.pop(0)
     links.pop(0)
     links.pop(0)
-    pubDates.pop(0)
+    # pubDates.pop(0)
 
     #Dictionary to hold crawled information
 
