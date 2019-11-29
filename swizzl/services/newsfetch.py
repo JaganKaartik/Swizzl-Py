@@ -10,6 +10,8 @@ from swizzl.services.mlearning import sentiment as st
 from swizzl.services.mlearning import prof
 import re
 import html
+import nltk
+nltk.download('vader_lexicon')
 
 """
 	linkText(link)
