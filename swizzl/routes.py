@@ -13,8 +13,8 @@ from swizzl.services import newsfetch as snf
 """
     TESTING BACKEND 
 """
-app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0' 
+app.config['CELERY_BROKER_URL'] = 'redis://h:pc2f2c4b5ecdcb2029d584ef8876a76ee93c1a37779f28023b2c8dc4cb978a66c@ec2-52-0-2-17.compute-1.amazonaws.com:25329'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://h:pc2f2c4b5ecdcb2029d584ef8876a76ee93c1a37779f28023b2c8dc4cb978a66c@ec2-52-0-2-17.compute-1.amazonaws.com:25329' 
 
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
