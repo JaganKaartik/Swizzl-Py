@@ -9,7 +9,8 @@
 
  	<div class = "card hoverable">
 
- 		<h5 class ="light-blue-text text-darken-4 " style="text-align:center;">Preferences</h5>
+
+ 		<h5 class ="light-blue-text text-darken-4" style="text-align:center;">Preferences</h5>
 
 			 <p>Sentiment</p>
 			  <div class="switch">
@@ -31,7 +32,6 @@
 			      Objective
 			    </label>
 			  </div>
-			
 
 	</div>  <!--End of Pref Card-->
 
@@ -43,10 +43,10 @@
 				
 			<!-- Positive Sentiment Card -->
 				
-				<div id="{{i.id}}" class="card hoverable"> 
+				<div id="{{i.sentid}}" class="card hoverable mild"> 
 					<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
-					<p><a href="{{ i.link }}"> Click here to read more</a></p>
+					<p><a href="{{ i.link }}" class="grey-text card"> Click here to read more</a></p>
 						{% if i.tbscore|float > 0.5 %}
 							<h6 class="teal-text text-darken-2">Subjective Content</h6>
 						{% else %}
@@ -64,7 +64,7 @@
 			
 			<!-- Negative Sentiment Card -->
 
-				<div id="{{i.id}}" class="card hoverable"> 
+				<div id="{{i.sentid}}" class="card hoverable wiretap"> 
 					<div class="card-content">
 					<span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
 					<p><a href="{{ i.link }}"> Click here to read more</a></p>
