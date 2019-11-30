@@ -78,12 +78,32 @@
                 $("p").show();
               });
             });
-            $(document).ready(function(){
-            $("button").click(function(){
-              $("#pos").toggleClass("ui green button");
-              $("#neg").removeClass("basic");
+            // Toggle Positive Class
+            $(document).ready(function()
+            {$("#pos").click(function()
+            { 
+              if($("#pos").hasClass('basic')) 
+              { 
+                $("#pos").removeClass('basic');
+                            }
+              else
+              { 
+                $("#pos").addClass('basic');
+              }});
             });
+            $(document).ready(function()
+            {$("#neg").click(function()
+            { 
+              if($("#neg").hasClass('basic')) 
+              { 
+                $("#neg").removeClass('basic');
+                            }
+              else
+              { 
+                $("#neg").addClass('basic');
+              }});
             });
            </script>
      </body>
 </html>
+
