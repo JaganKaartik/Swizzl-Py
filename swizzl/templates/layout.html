@@ -21,7 +21,8 @@
     
     <!-- Semantic UI Label-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/label.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/button.min.css">
+    
     <!-- External CSS -->  
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='parallax.css') }}">
@@ -37,36 +38,52 @@
    
     <title>Swizzl</title>
 </head>
-<body>
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top light-blue darken-3">
-        <div class="container">
-          <a class="navbar-brand mr-4 title " href="/">Swizzl</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-              <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
-              {% if current_user.is_authenticated %}
-              <a class="nav-item nav-link" href="{{ url_for('admin.index') }}">Admin</a>
-              {% else %}
-              {% endif %}
+    <body>
+          <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top light-blue darken-3">
+            <div class="container">
+              <a class="navbar-brand mr-4 title " href="/">Swizzl</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggle">
+                  <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+                  {% if current_user.is_authenticated %}
+                  <a class="nav-item nav-link" href="{{ url_for('admin.index') }}">Admin</a>
+                  {% else %}
+                  {% endif %}
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav ">
+                  {% if current_user.is_authenticated %}
+                    <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                  {% else %}
+                    <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                    <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                  {% endif %}
+              </div>
             </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav ">
-              {% if current_user.is_authenticated %}
-                <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
-              {% else %}
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-              {% endif %}
-          </div>
-        </div>
-      </nav>
-      {% block content %}
-      {% endblock %}
-      <!-- <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
-      <script>$(document).ready(function(){$("#positive").click(function(){$("#posCard").show();});$("#negative").click(function(){$("#posCard").hide();});});</script> -->
-</body>
+          </nav>
+          {% block content %}
+          {% endblock %}
+          <!-- <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
+          <script>$(document).ready(function(){$("#positive").click(function(){$("#posCard").show();});$("#negative").click(function(){$("#posCard").hide();});});</script> -->
+          <script>
+            $(document).ready(function(){
+              $("#positive").click(function(){
+                $("p").hide();
+              });
+              $("#negative").click(function(){
+                $("p").show();
+              });
+            });
+            $(document).ready(function(){
+            $("button").click(function(){
+              $("#pos").toggleClass("ui green button");
+              $("#neg").removeClass("basic");
+            });
+            });
+           </script>
+     </body>
 </html>

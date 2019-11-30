@@ -12,25 +12,10 @@
  		<h5 class ="light-blue-text text-darken-4" style="text-align:center;">Preferences</h5>
 
 			 <p>Sentiment</p>
-			  <div class="switch">
-			    <label>
-			      Negative
-			      <input class="sentiment"  onclick="sentimentFn()" type="checkbox">
-			      <span class="lever"></span>
-			      Positive
-			    </label>
-			  </div>
-			  <br>
-
-			  <p>Content</p>
-			  <div class="switch">
-			    <label>
-			      Subjective
-			      <input id="content"  onclick="contentFn()" type="checkbox">
-			      <span class="lever"></span>
-			      Objective
-			    </label>
-			  </div>
+			 <div class="innerpref">
+			 <button id="pos" class="ui green basic button" onclick="myfunc1()">Positive Feeds</button>
+			 <button id="neg" class="ui red basic button" onclick="myfunc2()">Negative Feeds</button>
+			 </div>
 
 	</div>  <!--End of Pref Card-->
 

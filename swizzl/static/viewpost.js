@@ -1,14 +1,10 @@
-// Function to check Sentiment Value and return which div to print
-
-function sentimentFn() 
+function myfunc1()
 {
-  var x = document.getElementById("0");
-  if(x.style.display === "none") 
-  {
-    x.style.display = "block";
-  } 
-  else 
-  {
-    x.style.display = "none";
-  }
+  var element = document.getElementById("pos");
+  element.className.toggle("ui green button");
+}
+function myfunc2()
+{
+  var element = document.getElementById("neg");
+  element.className.toggle("ui red button");
 }

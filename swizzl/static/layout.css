@@ -24,7 +24,7 @@
 .innerPref{
   margin:25px 50px 50px 100px;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 50% 50%;
   grid-gap: 1em;
 }
 .wrapper{
