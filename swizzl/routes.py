@@ -24,6 +24,10 @@ def feeds():
     fetchFeeds.delay()
     return render_template('home.html')
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
 @celery.task()
 def fetchFeeds():
     FeedDict = snf.YahooFetch()
