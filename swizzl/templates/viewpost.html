@@ -4,11 +4,9 @@
  
  <!-- Switch -->
 
-
  <div class="majorpost">
 
  	<div class = "card hoverable">
-
 
  		<h5 class ="light-blue-text text-darken-4" style="text-align:center;">Preferences</h5>
 
@@ -41,81 +39,79 @@
 
 			{% if i.vaderscoreComp|float >= 0.05 %}
 
-			<div id="{{i.sentid}}" class="card hoverable">
-					<div class="card-image">
-					  <img src="static/feedsPage/pos.jpg">
-					</div>
-					<div class="card-content">
-					  <p>{{ i.title}}</p>
-					  {% if i.tbscore|float > 0.5 %}
-							<h6 class="teal-text text-darken-2">Subjective Content</h6>
-					  {% else %}
-							<h6 class="cyan-text text-darken-2">Objective Content</h6>
-					  {% endif %}
-					  <!--Desiging a News Badge  -->
-					  
-					</div>
-					<div class="card-action">
-						<p><a href="{{ i.link }}"> Click here to read more</a></p>
-					</div>
-			 </div>
-				
 			<!-- Positive Sentiment Card -->
 
-				<div id="{{i.sentid}}" class="card hoverable mild">
+			<div id="{{i.sentid}}" class="card hoverable">
 
-					<!-- <div class="card-image">
-						<img src="feedsPage/pos.jpg">
-					</div> -->
-
+					{% if i.sentid == 1 %}
+					<div class="ui raised segment">
+						<a class="ui green label">Positive Sentiment</a>
+					</div>
+					{% else %}
+					<div class="ui raised segment">
+						<a class="ui red label">Negative Sentiment</a>
+					</div>
+					{% endif %}
+					
 					<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
+
+						<p>{{ i.title}}</p>
 						{% if i.tbscore|float > 0.5 %}
-							<h6 class="teal-text text-darken-2">Subjective Content</h6>
+								<h6 class="teal-text text-darken-2">Subjective Content</h6>
 						{% else %}
-							<h6 class="cyan-text text-darken-2">Objective Content</h6>
+								<h6 class="cyan-text text-darken-2">Objective Content</h6>
 						{% endif %}
+
+						<!--Desiging a News Badge  -->
+
+						<div class="card-action">
+							<p><a href="{{ i.link }}"> Click here to read more</a></p>
+						</div>
+
 					</div>
 
-					<div class="card-action">
-						<p><a href="{{ i.link }}" class="grey-text card"> Click here to read more</a></p>
-				    </div>
-
-					<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">{{ i.title}}</span>
-					<p>{{i.linkdata}}</p>	 
-					</div>
-
-				</div>  <!-- End of Card-->
+			 </div>
 
 			{% else %}
 			
 			<!-- Negative Sentiment Card -->
 
-				<div id="{{i.sentid}}" class="card hoverable wiretap"> 
+			<div id="{{i.sentid}}" class="card hoverable">
+
+					{% if i.sentid == 1 %}
+					<div class="ui raised segment">
+						<a class="ui green label">Positive Sentiment</a>
+					</div>
+					{% else %}
+					<div class="ui raised segment">
+						<a class="ui red label">Negative Sentiment</a>
+					</div>
+					{% endif %}
+
 					<div class="card-content">
-					<span class="card-title activator grey-text text-darken-4">{{ i.title}}</span>
-					<p><a href="{{ i.link }}"> Click here to read more</a></p>
+
+						<p>{{ i.title}}</p>
 						{% if i.tbscore|float > 0.5 %}
-							<h6 class="teal-text text-darken-2">Subjective Content</h6>
+								<h6 class="teal-text text-darken-2">Subjective Content</h6>
 						{% else %}
-							<h6 class="cyan-text text-darken-2">Objective Content</h6>
+								<h6 class="cyan-text text-darken-2">Objective Content</h6>
 						{% endif %}
+
+						<!--Desiging a News Badge  -->
+
+						<div class="card-action">
+							<p><a href="{{ i.link }}"> Click here to read more</a></p>
+						</div>
+
 					</div>
 
-					<div class="card-reveal">
-					<span class="card-title grey-text text-darken-4">{{ i.title}}</span>
-					<p>{{i.linkdata}}</p>	 
-					</div>
-				</div>  <!-- End of Card-->
-
+			 </div>
+				
 			{% endif %}
 
 		{% endfor %}
 
 	</div> <!--End of View Post Cont-->
-
-
 
 </div> <!--End of Major Cont-->
 
