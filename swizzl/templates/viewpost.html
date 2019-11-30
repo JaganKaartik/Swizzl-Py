@@ -43,34 +43,49 @@
 
 			<div id="{{i.sentid}}" class="card hoverable">
 
-					{% if i.sentid == 1 %}
+					<!-- Sentiment Label -->
 					<div class="ui raised segment">
 						<a class="ui green label">Positive Sentiment</a>
 					</div>
-					{% else %}
-					<div class="ui raised segment">
-						<a class="ui red label">Negative Sentiment</a>
-					</div>
-					{% endif %}
 					
-					<div class="card-content">
+					<div class="card-content activator">
 
-						<p>{{ i.title}}</p>
+						<p>{{ i.title}}</p><i class="material-icons right">more_vert</i>
 						{% if i.tbscore|float > 0.5 %}
 								<h6 class="teal-text text-darken-2">Subjective Content</h6>
 						{% else %}
 								<h6 class="cyan-text text-darken-2">Objective Content</h6>
 						{% endif %}
 
-						<!--Desiging a News Badge  -->
-
-						<div class="card-action">
-							<p><a href="{{ i.link }}"> Click here to read more</a></p>
-						</div>
-
 					</div>
 
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Insights<i class="material-icons right">close</i></span>
+						<div class="ui raised segment">
+						{% if i.vaderscoreNeut|float >=0.8 %}
+							<a class="ui green label">Highly Neutral Content</a>
+						{% elif i.vaderscoreNeut|float >=0.5 %}
+							<a class="ui olive label">Medium Neutral Content</a>
+						{% else %}
+							<a class="ui yellow label">Low Neutral Content</a>
+						{% endif%}
+						</div>
+						<br>
+						<div class="ui raised segment">
+						{% if i.vaderscorePos|float >= i.vaderscoreNeg|float %}
+							<a class="ui green label">Positive Weightage {{i.vaderscorePos}} > {{i.vaderscoreNeg}} </a>
+						{% else %}
+							<a class="ui yellow label">Negative Weightage {{i.vaderscoreNeg}} > {{i.vaderscorePos}}</a>
+						{% endif%}
+						</div>
+						<br>
+					</div>
+
+					<div class="card-action">
+						<p><a href="{{ i.link }}"> Click here to read more</a></p>
+					</div>					
 			 </div>
+
 
 			{% else %}
 			
@@ -78,33 +93,47 @@
 
 			<div id="{{i.sentid}}" class="card hoverable">
 
-					{% if i.sentid == 1 %}
-					<div class="ui raised segment">
-						<a class="ui green label">Positive Sentiment</a>
-					</div>
-					{% else %}
+					<!-- Sentiment Label -->
 					<div class="ui raised segment">
 						<a class="ui red label">Negative Sentiment</a>
 					</div>
-					{% endif %}
+					
+					<div class="card-content activator">
 
-					<div class="card-content">
-
-						<p>{{ i.title}}</p>
+						<p>{{ i.title}}</p><i class="material-icons right">more_vert</i>
 						{% if i.tbscore|float > 0.5 %}
 								<h6 class="teal-text text-darken-2">Subjective Content</h6>
 						{% else %}
 								<h6 class="cyan-text text-darken-2">Objective Content</h6>
 						{% endif %}
 
-						<!--Desiging a News Badge  -->
-
-						<div class="card-action">
-							<p><a href="{{ i.link }}"> Click here to read more</a></p>
-						</div>
-
 					</div>
 
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Insights<i class="material-icons right">close</i></span>
+						<div class="ui raised segment">
+						{% if i.vaderscoreNeut|float >=0.8 %}
+							<a class="ui green label">Highly Neutral Content</a>
+						{% elif i.vaderscoreNeut|float >=0.5 %}
+							<a class="ui olive label">Medium Neutral Content</a>
+						{% else %}
+							<a class="ui yellow label">Low Neutral Content</a>
+						{% endif%}
+						</div>
+						<br>
+						<div class="ui raised segment">
+						{% if i.vaderscorePos|float >= i.vaderscoreNeg|float %}
+							<a class="ui green label">Positive Weightage {{i.vaderscorePos}} > {{i.vaderscoreNeg}} </a>
+						{% else %}
+							<a class="ui red label">Negative Weightage {{i.vaderscoreNeg}} > {{i.vaderscorePos}}</a>
+						{% endif%}
+						</div>
+						<br>
+					</div>
+
+					<div class="card-action">
+						<p><a href="{{ i.link }}"> Click here to read more</a></p>
+					</div>					
 			 </div>
 				
 			{% endif %}
