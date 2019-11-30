@@ -2,14 +2,13 @@
 
 function sentimentFn() 
 {
-  var checkBox = document.getElementById("sentiment");
-  var text = document.getElementById("text");
-  if(checkBox.checked == true)
+  var x = document.getElementById("0");
+  if(x.style.display === "none") 
   {
-    text.style.display = "block";
+    x.style.display = "block";
   } 
   else 
   {
-    text.style.display = "none";
+    x.style.display = "none";
   }
 }

@@ -4,6 +4,7 @@
  
  <!-- Switch -->
 
+
  <div class="majorpost">
 
  	<div class = "card hoverable">
@@ -14,7 +15,7 @@
 			  <div class="switch">
 			    <label>
 			      Negative
-			      <input id="sentiment"  onclick="sentimentFn()" type="checkbox">
+			      <input class="sentiment"  onclick="sentimentFn()" type="checkbox">
 			      <span class="lever"></span>
 			      Positive
 			    </label>
@@ -39,9 +40,9 @@
 
 			{% if i.vaderscoreComp|float >= 0.05 %}
 
-			<!-- Positive Sentiment Card -->
+			<!-- Positive Sentiment Card ID = 1 -->
 
-			<div id="{{i.sentid}}" class="card hoverable">
+			<div id="{{i.vaderscoreComp}}" class="card hoverable">
 
 					<!-- Sentiment Label -->
 					<div class="ui raised segment">
@@ -50,13 +51,8 @@
 					
 					<div class="card-content activator">
 
-						<p>{{ i.title}}</p><i class="material-icons right">more_vert</i>
-						{% if i.tbscore|float > 0.5 %}
-								<h6 class="teal-text text-darken-2">Subjective Content</h6>
-						{% else %}
-								<h6 class="cyan-text text-darken-2">Objective Content</h6>
-						{% endif %}
-
+						<p>{{ i.title}}</p><i class="material-icons right">open_in_browser</i>
+						
 					</div>
 
 					<div class="card-reveal">
@@ -79,6 +75,13 @@
 						{% endif%}
 						</div>
 						<br>
+						<div class="ui raised segment">
+						{% if i.tbscore|float >= 0.5 %}
+							<a class="ui teal label">Subjective Content {{'%0.2f'| format(i.tbscore|float)}}</a>
+						{% else %}
+							<a class="ui blue label">Objective Content {{'%0.2f'| format(i.tbscore|float)}}</a>
+						{% endif%}
+						</div>
 					</div>
 
 					<div class="card-action">
@@ -91,7 +94,7 @@
 			
 			<!-- Negative Sentiment Card -->
 
-			<div id="{{i.sentid}}" class="card hoverable">
+			<div id="{{i.vaderscoreComp}}" class="card hoverable">
 
 					<!-- Sentiment Label -->
 					<div class="ui raised segment">
@@ -100,12 +103,8 @@
 					
 					<div class="card-content activator">
 
-						<p>{{ i.title}}</p><i class="material-icons right">more_vert</i>
-						{% if i.tbscore|float > 0.5 %}
-								<h6 class="teal-text text-darken-2">Subjective Content</h6>
-						{% else %}
-								<h6 class="cyan-text text-darken-2">Objective Content</h6>
-						{% endif %}
+						<p>{{ i.title}}</p><i class="material-icons right">open_in_browser</i>
+					
 
 					</div>
 
@@ -129,6 +128,13 @@
 						{% endif%}
 						</div>
 						<br>
+						<div class="ui raised segment">
+						{% if i.tbscore|float >= 0.5 %}
+							<a class="ui teal label">Subjective Content {{'%0.2f'| format(i.tbscore|float)}}</a>
+						{% else %}
+							<a class="ui blue label">Objective Content {{'%0.2f'| format(i.tbscore|float)}}</a>
+						{% endif%}
+						</div>
 					</div>
 
 					<div class="card-action">

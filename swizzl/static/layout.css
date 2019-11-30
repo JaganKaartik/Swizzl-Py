@@ -79,3 +79,9 @@
   background-attachment: fixed;
   background-size:100%;
 }
+
+.feedbody{
+  background-image:url('feedsPage/feedsbg.jpg');
+  background-size:100%;
+}
+
