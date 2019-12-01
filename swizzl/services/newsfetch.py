@@ -18,6 +18,13 @@ nltk.download('vader_lexicon')
 	This is the function that retrives text data from the "links" fetched from the yahoo fetch rss crawler
 
 """
+def linkImg(link):
+    url = "{}".format(link)
+    r = requests.get(url) 
+    soup = BeautifulSoup(r.content,"lxml") 
+    obj = soup.find_all("img",class_="Maw(100%)")
+    for i in obj:
+        return i['src']
 
 def linkText(link):
 	url = "{}".format(link)
@@ -83,7 +90,9 @@ def YahooFetch():
             textval = linkText(html.unescape(i.get_text()))
             textval = re.sub('\"','\\"',textval)
             textval = " \" " + textval + " \" "
-            temptext.append(textval)
+            
+            #Run LinkImg Finder
+            temptext.append(linkImg(html.unescape(i.get_text())))
             
             # Find Subjectivity, Objectivity of text content
             score = st.sentimentTB(textval)

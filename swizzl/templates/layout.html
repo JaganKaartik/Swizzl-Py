@@ -71,38 +71,13 @@
           <script>$(document).ready(function(){$("#positive").click(function(){$("#posCard").show();});$("#negative").click(function(){$("#posCard").hide();});});</script> -->
           <script>
             $(document).ready(function(){
-              $("#positive").click(function(){
-                $("p").hide();
-              });
-              $("#negative").click(function(){
-                $("p").show();
+              $("#pos").click(function(){
+                $("#"+id).hasClass("card hoverable neg").hide();
               });
             });
             // Toggle Positive Class
-            $(document).ready(function()
-            {$("#pos").click(function()
-            { 
-              if($("#pos").hasClass('basic')) 
-              { 
-                $("#pos").removeClass('basic');
-                            }
-              else
-              { 
-                $("#pos").addClass('basic');
-              }});
-            });
-            $(document).ready(function()
-            {$("#neg").click(function()
-            { 
-              if($("#neg").hasClass('basic')) 
-              { 
-                $("#neg").removeClass('basic');
-                            }
-              else
-              { 
-                $("#neg").addClass('basic');
-              }});
-            });
+            $(document).ready(function(){$("#pos").click(function(){$("#pos").hasClass("basic")?$("#pos").removeClass("basic"):$("#pos").addClass("basic")})});
+            $(document).ready(function(){$("#neg").click(function(){$("#neg").hasClass("basic")?$("#neg").removeClass("basic"):$("#neg").addClass("basic")})});
            </script>
      </body>
 </html>

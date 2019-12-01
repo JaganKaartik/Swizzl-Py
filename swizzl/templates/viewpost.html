@@ -13,8 +13,8 @@
 
 			 <p>Sentiment</p>
 			 <div class="innerpref">
-			 <button id="pos" class="ui green basic button" onclick="myfunc1()">Positive Feeds</button>
-			 <button id="neg" class="ui red basic button" onclick="myfunc2()">Negative Feeds</button>
+			 <button id="pos" class="ui green basic button" >Positive Feeds</button>
+			 <button id="neg" class="ui red basic button" >Negative Feeds</button>
 			 </div>
 
 	</div>  <!--End of Pref Card-->
@@ -27,7 +27,7 @@
 
 			<!-- Positive Sentiment Card ID = 1 -->
 
-			<div id="{{i.vaderscoreComp}}" class="card hoverable">
+			<div id="{{i.id}}" class="card hoverable pos">
 
 					<!-- Sentiment Label -->
 					<div class="ui raised segment">
@@ -79,7 +79,7 @@
 			
 			<!-- Negative Sentiment Card -->
 
-			<div id="{{i.vaderscoreComp}}" class="card hoverable">
+			<div id="{{i.id}}" class="card hoverable neg">
 
 					<!-- Sentiment Label -->
 					<div class="ui raised segment">
