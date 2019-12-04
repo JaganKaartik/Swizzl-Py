@@ -71,7 +71,20 @@
           <!-- <script type="text/javascript">$(document).ready(function(){$('.tabs').tabs();});</script>
           <script>$(document).ready(function(){$("#positive").click(function(){$("#posCard").show();});$("#negative").click(function(){$("#posCard").hide();});});</script> -->
           <script>
-           
+
+          window.onscroll = function() {myFunction()};
+
+          var navbar = document.getElementById("navbar");
+          var sticky = navbar.offsetTop;
+
+          function myFunction() {
+            if (window.pageYOffset >= sticky) {
+              navbar.classList.add("sticky")
+            } else {
+              navbar.classList.remove("sticky");
+            }
+          }
+
             // Toggle Positive Class
             $(document).ready(function(){$("#pos").click(function(){$("#pos").hasClass("basic")?$("#pos").removeClass("basic"):$("#pos").addClass("basic")})});
             $(document).ready(function(){$("#neg").click(function(){$("#neg").hasClass("basic")?$("#neg").removeClass("basic"):$("#neg").addClass("basic")})});
