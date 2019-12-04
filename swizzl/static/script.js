@@ -13,7 +13,7 @@ function myFunction()
             card[i].classList.add("blue-grey");
             for (i = 0; i < c.length; i++) 
             {
-                txt = txt + c[i].tagName + "<br>";
+                txt = txt + c[i].tagName
             }
             card[i].classList.add("white-text");
         }
