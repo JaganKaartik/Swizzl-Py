@@ -138,4 +138,6 @@ print(FeedDict['link'][0])
 print(FeedDict['linktext'][0])
 print(FeedDict['pubdate'][0])
 
+Crawler tested and verified using Jupyter Notebook
+
 """
