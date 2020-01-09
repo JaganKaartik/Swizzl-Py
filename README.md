@@ -93,7 +93,6 @@ celery -A swizzl.routes:celery worker --loglevel=info
 
 ### Deployment (Heroku) : Master Branch
 ### Development (April-Novemeber) : Develop Branch
-### Development (Current) : 
 
 
 #### Image Credits
