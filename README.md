@@ -91,9 +91,6 @@ celery -A swizzl.routes:celery worker --loglevel=info
 
 * The subjectivity is a float within the range [0.0, 1.0] where 0.0 is very objective and 1.0 is very subjective. The tbscore attribute keeps track of subjectivity.
 
-### Deployment (Heroku) : Master Branch
-### Development (April-Novemeber) : Develop Branch
-
 
 #### Image Credits
 
