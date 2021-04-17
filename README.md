@@ -1,6 +1,10 @@
 # Swizzl
 
-**Note:** This project is archived, use only for reference purposes. POC Attempt.
+<p align="center">
+   <img src="https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/homePage.gif">
+   <img src="https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/feedsPage.gif">
+</p>
+
 
 ## Introduction
 
@@ -28,6 +32,8 @@ Swizzl is a web application which aggregates syndicated web content from online 
 * Other python library dependencies specified in the ```requirements.txt```
 * Celery Task Queue ```4.2```
 * Redis-Server ```5.0.5```
+
+**Note:** This project is archived, use only for reference purposes. POC Attempt.
 
 ## Instructions to use this Software
 
@@ -70,11 +76,6 @@ celery -A swizzl.routes:celery worker --loglevel=info
 
 ![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/register.png)
 
-### Home Page (Logged In) 
-<small>*Takes time to load!</small>
-
-![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/homePage.gif)
-
 ### Home Page (Explaining Features)
 
 ![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/f1.png)
@@ -82,11 +83,6 @@ celery -A swizzl.routes:celery worker --loglevel=info
 ![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/f3.png)
 ![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/f4.png)
 ![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/f5.png)
-
-### View Posts Page
-<small>*Takes time to load!</small>
-
-![](https://github.com/JaganKaartik/Swizzl/blob/master/Documentation/Images/feedsPage.gif)
 
 
 ## Testing
